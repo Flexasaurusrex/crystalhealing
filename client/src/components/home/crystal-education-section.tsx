@@ -159,20 +159,17 @@ export function CrystalEducationSection() {
     const crystalType = property.crystal.toLowerCase().replace(/\s+/g, '');
     
     try {
-      // If the image is a data URL (from direct upload), we need to skip this
-      if (imageUrl.startsWith('/uploads/')) {
-        // Image is already on the server, save the reference
-        await fetch('/api/upload-crystal-image', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            crystal: crystalType,
-            imageUrl,
-          }),
-        });
-      }
+      // For simplicity, we'll just make a POST request with the image URL
+      await fetch('/api/upload-crystal-image', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          crystal: crystalType,
+          imageUrl,
+        }),
+      });
     } catch (error) {
       console.error('Error saving crystal image:', error);
     }
