@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { InPlaceImageEditor } from "@/components/admin/InPlaceImageEditor";
+import { useQuery } from "@tanstack/react-query";
 
 interface CrystalCardProps {
   image: string;
@@ -11,9 +12,10 @@ interface CrystalCardProps {
   tagColor: string;
   price: string;
   delay: number;
+  galleryKey: string;
 }
 
-function CrystalCard({ image, title, description, tag, tagColor, price, delay }: CrystalCardProps) {
+function CrystalCard({ image, title, description, tag, tagColor, price, delay, galleryKey }: CrystalCardProps) {
   const [crystalImage, setCrystalImage] = useState(image);
 
   return (
@@ -31,7 +33,7 @@ function CrystalCard({ image, title, description, tag, tagColor, price, delay }:
           className="w-full h-full object-cover"
           onImageUpdated={(newUrl) => setCrystalImage(newUrl)}
           sectionId="gallery"
-          subsectionId={title.split(' ')[0].toLowerCase()}
+          subsectionId={galleryKey}
         />
       </div>
       <div className="p-5 md:p-6 flex flex-col flex-grow">
@@ -49,9 +51,15 @@ function CrystalCard({ image, title, description, tag, tagColor, price, delay }:
 }
 
 export function GallerySection() {
-  const crystals = [
+  const { data: sectionImages } = useQuery({
+    queryKey: ['/api/section-images'],
+    refetchInterval: 5000 // Refetch every 5 seconds to ensure we get fresh images
+  });
+
+  // Define the crystal data
+  const crystalData = [
     {
-      image: "/uploads/image-1747850142811-50648891.png",
+      id: "amethyst",
       title: "Amethyst Clusters",
       description: "These purple beauties are among our most popular donations, with their striking color and fascinating geometric crystal formations.",
       tag: "Most requested",
@@ -60,7 +68,7 @@ export function GallerySection() {
       delay: 1
     },
     {
-      image: "/uploads/image-1747850443498-996657443.png",
+      id: "clearQuartz",
       title: "Clear Quartz Points",
       description: "These crystal points catch and reflect light beautifully, creating rainbow prisms that delight children of all ages.",
       tag: "Great for all ages",
@@ -69,7 +77,7 @@ export function GallerySection() {
       delay: 2
     },
     {
-      image: "/uploads/image-1747849325361-238788183.jpeg",
+      id: "roseQuartz",
       title: "Rose Quartz",
       description: "With their gentle pink color, these stones are particularly popular with younger children and create a calming visual experience.",
       tag: "Calming effect",
@@ -78,7 +86,7 @@ export function GallerySection() {
       delay: 3
     },
     {
-      image: "/uploads/image-1747849839811-417506369.png",
+      id: "fluorite",
       title: "Fluorite",
       description: "These multi-colored crystals feature bands of purple, green, and blue, making them particularly fascinating visual tools.",
       tag: "Color variety",
@@ -87,7 +95,7 @@ export function GallerySection() {
       delay: 4
     },
     {
-      image: "/uploads/image-1747850244264-747089433.png",
+      id: "selenite",
       title: "Selenite",
       description: "These luminous white crystals have a gentle glow and fibrous texture that children find both calming and intriguing.",
       tag: "Gentle glow",
@@ -96,7 +104,7 @@ export function GallerySection() {
       delay: 5
     },
     {
-      image: "/uploads/image-1747850360003-848574926.png",
+      id: "citrine",
       title: "Citrine",
       description: "With their sunny yellow color, these crystals bring a bright energy to any room and are especially popular in long-term care settings.",
       tag: "Brightens spaces",
@@ -105,6 +113,31 @@ export function GallerySection() {
       delay: 6
     }
   ];
+
+  // Default fallback images (only used if API fails to load)
+  const defaultImages = {
+    amethyst: "/uploads/image-1747854751481-681103192.png",
+    clearQuartz: "/uploads/image-1747854250195-303880134.png",
+    roseQuartz: "/uploads/image-1747854759353-478435016.png",
+    fluorite: "/uploads/image-1747854768887-449831325.png",
+    selenite: "/uploads/image-1747853828273-599453880.png",
+    citrine: "/uploads/image-1747853773094-231801869.png"
+  };
+
+  // Get gallery images from the API response
+  const galleryImages = sectionImages?.gallery || {};
+
+  // Convert the data to the format needed for crystal cards
+  const crystals = crystalData.map(crystal => {
+    // Get image from section data if available, otherwise use default
+    const image = galleryImages[crystal.id] || defaultImages[crystal.id as keyof typeof defaultImages];
+    
+    return {
+      ...crystal,
+      image,
+      galleryKey: crystal.id
+    };
+  });
 
   return (
     <section id="gallery" className="py-16 sm:py-20 bg-white dark:bg-gray-900">
