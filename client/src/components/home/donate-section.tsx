@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Gem, Heart, Check, X } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { motion, useAnimation, AnimatePresence } from "framer-motion";
+import { Gem, Heart, Check, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -17,6 +17,111 @@ import {
   DialogFooter,
   DialogClose,
 } from "@/components/ui/dialog";
+
+// Interactive Crystal Animation Component
+function InteractiveCrystal() {
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [sparkleCount, setSparkleCount] = useState(0);
+  const controls = useAnimation();
+  const crystalRef = useRef<HTMLDivElement>(null);
+  
+  // Colors for the crystal to cycle through when clicked
+  const crystalColors = [
+    "#9c27b0", // Purple
+    "#e91e63", // Pink
+    "#3f51b5", // Indigo
+    "#2196f3", // Blue
+    "#4caf50", // Green
+    "#ff9800", // Orange
+  ];
+  
+  const handleCrystalClick = () => {
+    // Start animation and add sparkles
+    setIsAnimating(true);
+    setSparkleCount(prev => Math.min(prev + 3, 20)); // Add more sparkles up to a maximum
+    
+    // Animate the crystal - pulse and change colors
+    controls.start({
+      scale: [1, 1.1, 1],
+      rotate: [0, 5, -5, 0],
+      backgroundColor: [
+        crystalColors[Math.floor(Math.random() * crystalColors.length)],
+        crystalColors[Math.floor(Math.random() * crystalColors.length)],
+        "#9c27b0" // Return to purple
+      ],
+      transition: { 
+        duration: 1.5,
+        ease: "easeInOut"
+      }
+    });
+    
+    // Reset animation state after the animation completes
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 1500);
+  };
+  
+  // Generate random position for sparkles
+  const generateSparklePosition = () => {
+    if (!crystalRef.current) return { top: "50%", left: "50%" };
+    
+    const width = crystalRef.current.offsetWidth;
+    const height = crystalRef.current.offsetHeight;
+    
+    return {
+      top: `${Math.random() * 120 - 10}%`,
+      left: `${Math.random() * 120 - 10}%`
+    };
+  };
+  
+  return (
+    <div className="relative w-full h-[120px] flex items-center justify-center mt-8">
+      <motion.div
+        ref={crystalRef}
+        className="cursor-pointer relative"
+        animate={controls}
+        onClick={handleCrystalClick}
+        whileHover={{ scale: 1.05 }}
+        initial={{ scale: 1 }}
+      >
+        {/* Main Crystal */}
+        <div className="w-24 h-32 bg-purple-600 rounded-lg relative transform rotate-45 shadow-xl overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-400/30 to-transparent"></div>
+          <div className="absolute top-1/3 left-1/4 w-1/2 h-1/3 bg-white/20 rounded-full blur-sm"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-1/3 h-1/4 bg-purple-300/30 rounded-full blur-sm"></div>
+        </div>
+        
+        {/* Crystal Base */}
+        <div className="w-20 h-6 bg-purple-900 rounded-lg absolute -bottom-3 left-2 transform rotate-45 shadow-md"></div>
+        
+        {/* Hover instruction */}
+        <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-purple-200 text-sm font-medium">
+          Click for magic!
+        </div>
+        
+        {/* Sparkles around crystal when clicked */}
+        <AnimatePresence>
+          {isAnimating && Array.from({ length: sparkleCount }).map((_, i) => {
+            const position = generateSparklePosition();
+            return (
+              <motion.div
+                key={`sparkle-${i}`}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: [0, 1.5, 0] }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: Math.random() * 1 + 0.5 }}
+                className="absolute w-3 h-3 text-yellow-200"
+                style={{ top: position.top, left: position.left }}
+              >
+                <Sparkles className="w-full h-full" />
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
+      </motion.div>
+    </div>
+  );
+}
 
 export function DonateSection() {
   const [selectedAmount, setSelectedAmount] = useState<string | null>(null);
