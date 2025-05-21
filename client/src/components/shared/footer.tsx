@@ -1,5 +1,8 @@
-import { Gem, MapPin, Phone, Mail } from "lucide-react";
+import { Gem, MapPin, Phone, Mail, LogOut } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { toast } from "@/hooks/use-toast";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
