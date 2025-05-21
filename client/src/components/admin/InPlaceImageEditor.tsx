@@ -43,74 +43,49 @@ export function InPlaceImageEditor({
       const formData = new FormData();
       formData.append('image', file);
       
-      // If we have section info, use the admin upload endpoint to save section data
+      // Always add section info to the form data if available - this ensures persistence
       if (sectionId) {
-        // Add section information to the form data
-        formData.append('section', sectionId);
-        if (subsectionId) {
-          formData.append('subsection', subsectionId);
+        formData.append('sectionId', sectionId);
+      }
+      if (subsectionId) {
+        formData.append('subsectionId', subsectionId);
+      }
+      
+      // Use a consistent endpoint for all uploads
+      const response = await fetch('/api/simple-upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Upload failed');
+      }
+
+      const data = await response.json();
+      const imageUrl = data.url;
+        
+      if (imageUrl) {
+        // Update the image URL in the component
+        if (onImageUpdated) {
+          onImageUpdated(imageUrl);
         }
         
-        const response = await fetch('/api/upload-image', {
-          method: 'POST',
-          body: formData,
+        // Show success state
+        setUploadSuccess(true);
+        
+        // Show a more specific toast message if we know which section was updated
+        toast({
+          title: "Image updated",
+          description: sectionId 
+            ? `The image for ${sectionId}${subsectionId ? '/' + subsectionId : ''} has been saved.`
+            : "The image has been successfully updated.",
         });
-
-        if (!response.ok) {
-          throw new Error('Upload failed');
-        }
-
-        const data = await response.json();
         
-        if (data.imageUrl) {
-          if (onImageUpdated) {
-            onImageUpdated(data.imageUrl);
-          }
-          
-          setUploadSuccess(true);
-          
-          toast({
-            title: "Image updated",
-            description: `The image for ${sectionId} has been successfully updated and saved.`,
-          });
-          
-          // Auto hide the editor after a brief success display
-          setTimeout(() => {
-            setIsEditing(false);
-            setUploadSuccess(false);
-          }, 2000);
-        }
-      } else {
-        // Use the simple upload endpoint if no section is specified
-        const response = await fetch('/api/simple-upload', {
-          method: 'POST',
-          body: formData,
-        });
-
-        if (!response.ok) {
-          throw new Error('Upload failed');
-        }
-
-        const data = await response.json();
-        
-        if (data.url) {
-          if (onImageUpdated) {
-            onImageUpdated(data.url);
-          }
-          
-          setUploadSuccess(true);
-          
-          toast({
-            title: "Image updated",
-            description: "The image has been successfully updated.",
-          });
-          
-          // Auto hide the editor after a brief success display
-          setTimeout(() => {
-            setIsEditing(false);
-            setUploadSuccess(false);
-          }, 2000);
-        }
+        // Auto hide the editor after a brief success display
+        setTimeout(() => {
+          setIsEditing(false);
+          setUploadSuccess(false);
+        }, 2000);
       }
     } catch (error) {
       console.error('Error uploading image:', error);
