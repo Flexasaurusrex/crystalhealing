@@ -15,8 +15,8 @@ export function MissionSection() {
           <h2 className="font-playfair font-bold text-3xl md:text-4xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-4">Our Mission</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-[hsl(var(--purple-500))] to-[hsl(var(--pink-400))] mx-auto mb-6"></div>
           <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            We believe in the power of natural beauty to inspire hope and healing. Our mission is to bring the therapeutic 
-            visual elements of crystals to children facing medical challenges.
+            We believe in the power of natural beauty to inspire hope and healing. Our mission is to develop a program that brings 
+            the therapeutic visual elements of crystals to children facing medical challenges.
           </p>
         </motion.div>
         

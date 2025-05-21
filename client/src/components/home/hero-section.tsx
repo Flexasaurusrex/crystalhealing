@@ -25,8 +25,8 @@ export function HeroSection() {
               Through Crystals
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl">
-              We donate display crystals as visual therapy tools to children in hospitals, 
-              partnering with St. Jude's to bring comfort and joy to young patients.
+              We're fundraising to launch our initiative to donate display crystals as visual therapy tools 
+              to children in hospitals, with the goal of bringing comfort and joy to young patients.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <Button 
@@ -69,21 +69,21 @@ export function HeroSection() {
             <div className="bg-white dark:bg-gray-800 rounded-full p-3 shadow-sm">
               <Hospital className="h-6 w-6 text-gray-500 dark:text-gray-400" />
             </div>
-            <span className="font-medium text-gray-600 dark:text-gray-300">St. Jude's Partnership</span>
+            <span className="font-medium text-gray-600 dark:text-gray-300">Seeking Hospital Partnerships</span>
           </div>
           
           <div className="flex items-center space-x-4">
             <div className="bg-white dark:bg-gray-800 rounded-full p-3 shadow-sm">
               <Heart className="h-6 w-6 text-[hsl(var(--pink-400))]" />
             </div>
-            <span className="font-medium text-gray-600 dark:text-gray-300">500+ Kids Supported</span>
+            <span className="font-medium text-gray-600 dark:text-gray-300">Launching in 2025</span>
           </div>
           
           <div className="flex items-center space-x-4">
             <div className="bg-white dark:bg-gray-800 rounded-full p-3 shadow-sm">
               <Gem className="h-6 w-6 text-[hsl(var(--purple-500))]" />
             </div>
-            <span className="font-medium text-gray-600 dark:text-gray-300">1000+ Crystals Donated</span>
+            <span className="font-medium text-gray-600 dark:text-gray-300">Fundraising Stage</span>
           </div>
         </motion.div>
       </div>

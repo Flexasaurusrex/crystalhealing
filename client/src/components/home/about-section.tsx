@@ -31,35 +31,32 @@ export function AboutSection() {
             <h2 className="font-playfair font-bold text-3xl md:text-4xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-4">About Us</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-[hsl(var(--purple-500))] to-[hsl(var(--pink-400))] mb-6"></div>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
-              Crystals for Kids was founded in 2018 by a group of crystal enthusiasts and healthcare professionals 
-              who recognized the positive impact that beautiful natural specimens could have on the healing environment.
+              Crystals for Kids was founded by a group of crystal enthusiasts and healthcare advocates 
+              who recognize the potential positive impact that beautiful natural specimens could have in a healing environment.
             </p>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
-              What started as a small collection drive has grown into a nationwide network of donors, volunteers, 
-              and partner hospitals committed to bringing moments of joy and wonder to children undergoing treatment.
+              We're currently in our startup phase, raising funds and building connections to launch our initiative 
+              that aims to bring moments of joy and wonder to children undergoing medical treatment.
             </p>
             
             <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm mb-8">
-              <h3 className="font-playfair font-semibold text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-3">Our Partnerships</h3>
+              <h3 className="font-playfair font-semibold text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-3">Potential Partners</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
-                We work closely with St. Jude Children's Research Hospital and other pediatric healthcare facilities across the country 
-                to implement our crystal therapy programs.
+                We're seeking to build relationships with children's hospitals and pediatric healthcare facilities 
+                to bring our crystal therapy program to life once we launch.
               </p>
               <div className="flex flex-wrap gap-4 mt-4">
                 <div className="flex items-center space-x-2 bg-[hsl(var(--stone-50))] dark:bg-gray-800 px-4 py-2 rounded-lg">
                   <Hospital className="h-4 w-4 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm text-gray-600 dark:text-gray-300">St. Jude's</span>
+                  <span className="text-sm text-gray-600 dark:text-gray-300">Children's Hospitals</span>
                 </div>
                 <div className="flex items-center space-x-2 bg-[hsl(var(--stone-50))] dark:bg-gray-800 px-4 py-2 rounded-lg">
                   <Hospital className="h-4 w-4 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm text-gray-600 dark:text-gray-300">Children's National</span>
+                  <span className="text-sm text-gray-600 dark:text-gray-300">Pediatric Wards</span>
                 </div>
                 <div className="flex items-center space-x-2 bg-[hsl(var(--stone-50))] dark:bg-gray-800 px-4 py-2 rounded-lg">
                   <Hospital className="h-4 w-4 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm text-gray-600 dark:text-gray-300">Boston Children's</span>
-                </div>
-                <div className="flex items-center space-x-2 bg-[hsl(var(--stone-50))] dark:bg-gray-800 px-4 py-2 rounded-lg">
-                  <span className="text-sm text-gray-600 dark:text-gray-300">+15 more</span>
+                  <span className="text-sm text-gray-600 dark:text-gray-300">Healthcare Providers</span>
                 </div>
               </div>
             </div>
@@ -84,7 +81,7 @@ export function AboutSection() {
           </motion.div>
         </div>
         
-        {/* Team Section */}
+        {/* Vision Section */}
         <div id="team" className="mt-24">
           <motion.div 
             className="text-center mb-12"
@@ -93,10 +90,10 @@ export function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="font-playfair font-bold text-3xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-4">Our Team</h2>
+            <h2 className="font-playfair font-bold text-3xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-4">Our Vision</h2>
             <div className="w-16 h-1 bg-gradient-to-r from-[hsl(var(--purple-500))] to-[hsl(var(--pink-400))] mx-auto mb-6"></div>
             <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Our dedicated team combines expertise in mineralogy, child psychology, and healthcare
+              Once launched, we plan to build a dedicated team combining expertise in mineralogy, child psychology, and healthcare
               to create meaningful experiences for children.
             </p>
           </motion.div>
@@ -113,10 +110,10 @@ export function AboutSection() {
                 <Users className="h-20 w-20 text-purple-200 dark:text-purple-700" />
               </div>
               <div className="p-6">
-                <h3 className="font-playfair font-semibold text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-1">Sarah Johnson</h3>
-                <p className="text-[hsl(var(--green-500))] font-montserrat text-sm font-medium mb-3">Executive Director</p>
+                <h3 className="font-playfair font-semibold text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-1">Program Design</h3>
+                <p className="text-[hsl(var(--green-500))] font-montserrat text-sm font-medium mb-3">Future Initiative</p>
                 <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  Former pediatric nurse with 15 years experience and a lifelong passion for minerals and crystals.
+                  Creating a thoughtful program that brings the wonder of crystals to pediatric care settings with appropriate training and procedures.
                 </p>
               </div>
             </motion.div>
@@ -132,10 +129,10 @@ export function AboutSection() {
                 <Users className="h-20 w-20 text-green-200 dark:text-green-700" />
               </div>
               <div className="p-6">
-                <h3 className="font-playfair font-semibold text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-1">Michael Chen</h3>
-                <p className="text-[hsl(var(--green-500))] font-montserrat text-sm font-medium mb-3">Hospital Liaison</p>
+                <h3 className="font-playfair font-semibold text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-1">Hospital Partnerships</h3>
+                <p className="text-[hsl(var(--green-500))] font-montserrat text-sm font-medium mb-3">Upcoming Goal</p>
                 <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  Child life specialist who coordinates with healthcare facilities to implement our programs.
+                  Developing relationships with healthcare facilities to implement crystal therapy in appropriate settings.
                 </p>
               </div>
             </motion.div>
@@ -151,10 +148,10 @@ export function AboutSection() {
                 <Users className="h-20 w-20 text-pink-200 dark:text-pink-700" />
               </div>
               <div className="p-6">
-                <h3 className="font-playfair font-semibold text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-1">Elena Rodriguez</h3>
-                <p className="text-[hsl(var(--green-500))] font-montserrat text-sm font-medium mb-3">Mineralogist</p>
+                <h3 className="font-playfair font-semibold text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-1">Crystal Selection</h3>
+                <p className="text-[hsl(var(--green-500))] font-montserrat text-sm font-medium mb-3">Quality Assurance</p>
                 <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  Expert gemologist who ensures the quality and safety of all donated crystal specimens.
+                  Ensuring all crystal specimens meet safety standards and are selected for maximum visual impact and therapeutic potential.
                 </p>
               </div>
             </motion.div>
