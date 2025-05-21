@@ -5,8 +5,7 @@ import { useState } from "react";
 import { InPlaceImageEditor } from "@/components/admin/InPlaceImageEditor";
 
 export function AboutSection() {
-  // Using direct image path to ensure it stays fixed
-  const [aboutImage, setAboutImage] = useState("/uploads/image-1747853828273-599453880.png");
+  const [aboutImage, setAboutImage] = useState("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=800");
   return (
     <section id="about" className="py-20 bg-[hsl(var(--stone-50))] dark:bg-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
