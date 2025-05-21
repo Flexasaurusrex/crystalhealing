@@ -71,20 +71,57 @@ export const getSectionImages = async () => {
   }
 };
 
-// Update section image
+// Update section image with stronger persistence
 export const updateSectionImage = async (section: string, subsection: string | null, imageUrl: string) => {
-  const sectionImages = await getSectionImages();
-  
-  if (subsection) {
-    if (!sectionImages[section]) {
-      sectionImages[section] = {};
+  try {
+    // Get the latest images directly from file
+    let sectionImages = {};
+    if (await existsAsync(SECTION_IMAGES_FILE)) {
+      const rawData = await readFileAsync(SECTION_IMAGES_FILE, 'utf8');
+      sectionImages = JSON.parse(rawData);
+    } else {
+      // Create default structure if file doesn't exist
+      sectionImages = await getSectionImages();
     }
-    sectionImages[section][subsection] = imageUrl;
-  } else {
-    sectionImages[section] = imageUrl;
+    
+    // Update the image URL
+    if (subsection) {
+      if (!sectionImages[section]) {
+        sectionImages[section] = {};
+      }
+      sectionImages[section][subsection] = imageUrl;
+    } else {
+      sectionImages[section] = imageUrl;
+    }
+    
+    // Write changes immediately with sync to ensure persistence
+    fs.writeFileSync(SECTION_IMAGES_FILE, JSON.stringify(sectionImages, null, 2));
+    
+    // Double-check that file was correctly written by reading it back
+    const verifyData = fs.readFileSync(SECTION_IMAGES_FILE, 'utf8');
+    const verifiedImages = JSON.parse(verifyData);
+    
+    // Verify specific image was saved
+    let savedCorrectly = false;
+    if (subsection) {
+      savedCorrectly = verifiedImages[section]?.[subsection] === imageUrl;
+    } else {
+      savedCorrectly = verifiedImages[section] === imageUrl;
+    }
+    
+    if (savedCorrectly) {
+      console.log(`CONFIRMED: Image for ${section}${subsection ? '/' + subsection : ''} saved to ${imageUrl}`);
+    } else {
+      console.error(`FAILED: Image for ${section}${subsection ? '/' + subsection : ''} was not saved correctly`);
+    }
+    
+    // Also save to a backup file for extra protection
+    const backupFile = SECTION_IMAGES_FILE + '.backup';
+    fs.writeFileSync(backupFile, JSON.stringify(sectionImages, null, 2));
+    
+    return sectionImages;
+  } catch (error) {
+    console.error('ERROR saving image:', error);
+    throw error;
   }
-  
-  await writeFileAsync(SECTION_IMAGES_FILE, JSON.stringify(sectionImages, null, 2));
-  console.log(`Successfully saved image for ${section}${subsection ? '/' + subsection : ''} to ${imageUrl}`);
-  return sectionImages;
 };
