@@ -98,7 +98,7 @@ export function AboutSection() {
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <motion.div 
               className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-md"
               initial={{ opacity: 0, y: 20 }}
@@ -152,6 +152,27 @@ export function AboutSection() {
                 <p className="text-[hsl(var(--green-500))] font-montserrat text-sm font-medium mb-3">Quality Assurance</p>
                 <p className="text-gray-600 dark:text-gray-300 text-sm">
                   Ensuring all crystal specimens meet safety standards and are selected for maximum visual impact and therapeutic potential.
+                </p>
+              </div>
+            </motion.div>
+            
+            <motion.div 
+              className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-md"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+            >
+              <div className="h-48 bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-20 w-20 text-indigo-200 dark:text-indigo-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+              </div>
+              <div className="p-6">
+                <h3 className="font-playfair font-semibold text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-1">Educational Resources</h3>
+                <p className="text-[hsl(var(--green-500))] font-montserrat text-sm font-medium mb-3">Knowledge Development</p>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                  Creating materials to educate caregivers and children about the properties of crystals and their role in creating calming environments.
                 </p>
               </div>
             </motion.div>
