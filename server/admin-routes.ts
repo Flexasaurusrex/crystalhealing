@@ -75,6 +75,7 @@ const initializeSectionImagesFile = async () => {
         },
         impact: '',
         crystalEducation: '',
+        crystalWhispers: '',
         donate: ''
       };
       

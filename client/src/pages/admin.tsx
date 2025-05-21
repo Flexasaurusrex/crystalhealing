@@ -59,6 +59,7 @@ export default function AdminPage() {
     impact: "",
     donate: "",
     crystalEducation: "",
+    crystalWhispers: "",
     
     // Gallery crystals
     amethyst: "",
@@ -377,6 +378,7 @@ export default function AdminPage() {
     { id: 'mission', title: 'Mission Section', description: 'Image for mission statement' },
     { id: 'impact', title: 'Impact Section', description: 'Image for impact metrics' },
     { id: 'crystalEducation', title: 'Crystal Education', description: 'Crystal education section image' },
+    { id: 'crystalWhispers', title: 'Crystal Whispers', description: 'Crystal whispers interactive section image' },
     { id: 'donate', title: 'Donate Section', description: 'Image for donation form area' },
   ];
 
