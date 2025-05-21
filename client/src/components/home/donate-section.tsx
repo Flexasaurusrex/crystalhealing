@@ -151,11 +151,112 @@ export function DonateSection() {
                   </div>
                 </div>
                 
-                <Button className="w-full bg-[hsl(var(--purple-500))] hover:bg-[hsl(var(--purple-800))] font-montserrat text-white">
-                  {selectedAmount ? `Donate $${selectedAmount} Now` : 'Donate Now'}
+                <Button 
+                  className="w-full bg-[hsl(var(--purple-500))] hover:bg-[hsl(var(--purple-800))] font-montserrat text-white"
+                  asChild
+                >
+                  <a href="https://venmo.com/Ludwig-VonMesser" target="_blank" rel="noopener noreferrer">
+                    {selectedAmount ? `Donate $${selectedAmount} Now` : 'Donate Now'}
+                  </a>
                 </Button>
               </motion.div>
             </div>
+            
+            {/* Cryptocurrency Donation Option */}
+            <motion.div 
+              className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm cursor-pointer hover:shadow-md transition-shadow duration-300 transform hover:-translate-y-1"
+              whileHover={{ y: -4 }}
+            >
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="font-playfair font-semibold text-xl text-[hsl(var(--purple-800))] dark:text-purple-300">Cryptocurrency Donation</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+              </div>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                We welcome cryptocurrency donations. You can contribute using Bitcoin (BTC), Ethereum (ETH), or Solana (SOL).
+              </p>
+              
+              <div className="space-y-3 mb-4">
+                <div className="flex items-center justify-between bg-[hsl(var(--stone-50))] dark:bg-gray-800 rounded-lg p-3">
+                  <div className="flex items-center space-x-3">
+                    <span className="w-8 h-8 flex items-center justify-center bg-orange-100 dark:bg-orange-900/30 rounded-full">
+                      <span className="text-orange-500 font-bold text-xs">₿</span>
+                    </span>
+                    <span className="font-medium text-sm text-gray-700 dark:text-gray-300">Bitcoin (BTC)</span>
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="text-xs"
+                    onClick={() => {
+                      navigator.clipboard.writeText("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa");
+                      toast({
+                        title: "Address Copied!",
+                        description: "Bitcoin address copied to clipboard.",
+                        variant: "default",
+                      });
+                    }}
+                  >
+                    Copy Address
+                  </Button>
+                </div>
+                
+                <div className="flex items-center justify-between bg-[hsl(var(--stone-50))] dark:bg-gray-800 rounded-lg p-3">
+                  <div className="flex items-center space-x-3">
+                    <span className="w-8 h-8 flex items-center justify-center bg-blue-100 dark:bg-blue-900/30 rounded-full">
+                      <span className="text-blue-500 font-bold text-xs">Ξ</span>
+                    </span>
+                    <span className="font-medium text-sm text-gray-700 dark:text-gray-300">Ethereum (ETH)</span>
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="text-xs"
+                    onClick={() => {
+                      navigator.clipboard.writeText("0x0000000000000000000000000000000000000000");
+                      toast({
+                        title: "Address Copied!",
+                        description: "Ethereum address copied to clipboard.",
+                        variant: "default",
+                      });
+                    }}
+                  >
+                    Copy Address
+                  </Button>
+                </div>
+                
+                <div className="flex items-center justify-between bg-[hsl(var(--stone-50))] dark:bg-gray-800 rounded-lg p-3">
+                  <div className="flex items-center space-x-3">
+                    <span className="w-8 h-8 flex items-center justify-center bg-purple-100 dark:bg-purple-900/30 rounded-full">
+                      <span className="text-purple-500 font-bold text-xs">◎</span>
+                    </span>
+                    <span className="font-medium text-sm text-gray-700 dark:text-gray-300">Solana (SOL)</span>
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="text-xs"
+                    onClick={() => {
+                      navigator.clipboard.writeText("So11111111111111111111111111111111111111112");
+                      toast({
+                        title: "Address Copied!",
+                        description: "Solana address copied to clipboard.",
+                        variant: "default",
+                      });
+                    }}
+                  >
+                    Copy Address
+                  </Button>
+                </div>
+              </div>
+              
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                Please contact us after making a crypto donation so we can properly acknowledge your contribution.
+              </p>
+            </motion.div>
             
             <div className="bg-white dark:bg-gray-900 rounded-xl p-5 shadow-sm border border-green-100 dark:border-green-900">
               <div className="flex items-center space-x-3 text-[hsl(var(--green-500))]">
