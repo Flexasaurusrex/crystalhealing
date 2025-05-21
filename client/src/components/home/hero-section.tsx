@@ -52,8 +52,8 @@ export function HeroSection() {
             transition={{ delay: 0.3, duration: 0.7 }}
           >
             <img 
-              src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-              alt="Crystal by hospital bedside bringing light and color" 
+              src="https://images.unsplash.com/photo-1617973114113-98ec286d4dab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+              alt="Colorful healing crystals that bring joy and wonder to children" 
               className="rounded-2xl shadow-xl w-full h-auto object-cover transform md:translate-x-8" 
             />
           </motion.div>
