@@ -130,8 +130,8 @@ export function MissionSection() {
             </div>
             <div className="lg:w-1/2 order-1 lg:order-2">
               <img 
-                src="https://images.unsplash.com/photo-1598965959456-30c6fd324e8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&h=800" 
-                alt="Amethyst crystals providing a healing atmosphere" 
+                src="https://images.pexels.com/photos/1573236/pexels-photo-1573236.jpeg?auto=compress&cs=tinysrgb&w=1000&h=800&dpr=1" 
+                alt="Amethyst crystal display in a peaceful setting" 
                 className="w-full h-full object-cover" 
               />
             </div>
