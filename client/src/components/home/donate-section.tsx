@@ -38,15 +38,14 @@ function InteractiveCrystal() {
   const handleCrystalClick = () => {
     // Start animation and add sparkles
     setIsAnimating(true);
-    setSparkleCount(prev => Math.min(prev + 5, 30)); // Add more sparkles up to a maximum
+    setSparkleCount(prev => Math.min(prev + 8, 40)); // Add more sparkles up to a maximum
     
-    // Animate the crystal - pulse and change colors
+    // Animate the crystal - pulse and glow effect
     controls.start({
       scale: [1, 1.15, 1],
-      opacity: [1, 0.8, 1],
-      filter: ["brightness(1)", "brightness(1.5)", "brightness(1)"],
+      filter: ["drop-shadow(0 0 2px rgba(168, 139, 218, 0.5))", "drop-shadow(0 0 15px rgba(168, 139, 218, 0.8))", "drop-shadow(0 0 2px rgba(168, 139, 218, 0.5))"],
       transition: { 
-        duration: 1.5,
+        duration: 1.8,
         ease: "easeInOut"
       }
     });
@@ -54,7 +53,7 @@ function InteractiveCrystal() {
     // Reset animation state after the animation completes
     setTimeout(() => {
       setIsAnimating(false);
-    }, 1500);
+    }, 1800);
   };
   
   // Generate random position for sparkles
@@ -77,30 +76,83 @@ function InteractiveCrystal() {
         whileHover={{ scale: 1.05 }}
         initial={{ scale: 1 }}
       >
-        {/* Diamond Crystal Logo Animation */}
-        <div className="relative h-[200px] w-[200px]">
-          {/* Diamond crystal shape - resembling your site logo */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] rotate-45 overflow-visible">
-            {/* Top facet */}
-            <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-br from-purple-300 to-purple-600 border-2 border-purple-200/30 shadow-lg">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent"></div>
-            </div>
+        {/* Exact diamond logo SVG animation */}
+        <div className="relative h-[200px] w-[200px] flex items-center justify-center">
+          {/* Diamond SVG that matches your logo exactly */}
+          <svg 
+            width="150" 
+            height="150" 
+            viewBox="0 0 50 50" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+            className="transform scale-[1.2]"
+          >
+            {/* Top half */}
+            <path 
+              d="M25 5L45 25L25 45L5 25L25 5Z" 
+              fill="url(#diamond-gradient)" 
+              stroke="#c4b5d9" 
+              strokeWidth="0.8"
+            />
             
-            {/* Inner diamond shape for depth */}
-            <div className="absolute top-[15px] left-[15px] right-[15px] bottom-[15px] bg-gradient-to-br from-purple-400 to-purple-700 rotate-0 shadow-inner">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent"></div>
-            </div>
+            {/* Bottom facet line */}
+            <path 
+              d="M15 25L25 45L35 25" 
+              stroke="#c4b5d9" 
+              strokeWidth="0.8" 
+              fill="none"
+            />
             
-            {/* Central gem shine */}
-            <div className="absolute top-1/4 left-1/4 w-1/2 h-1/2 bg-white/20 rounded-full blur-[2px]"></div>
+            {/* Right facet line */}
+            <path 
+              d="M25 15L45 25L25 35" 
+              stroke="#c4b5d9" 
+              strokeWidth="0.8" 
+              fill="none"
+            />
             
-            {/* Facet reflections */}
-            <div className="absolute top-[20px] left-[20px] w-[30px] h-[2px] bg-white/70 rounded-full transform rotate-[45deg]"></div>
-            <div className="absolute top-[30px] right-[30px] w-[25px] h-[2px] bg-white/60 rounded-full transform rotate-[-30deg]"></div>
-            <div className="absolute bottom-[25px] left-[40px] w-[20px] h-[2px] bg-white/60 rounded-full transform rotate-[60deg]"></div>
-          </div>
+            {/* Left facet line */}
+            <path 
+              d="M25 15L5 25L25 35" 
+              stroke="#c4b5d9" 
+              strokeWidth="0.8" 
+              fill="none"
+            />
+            
+            {/* Inner decoration */}
+            <path 
+              d="M25 15L35 25L25 35L15 25L25 15Z" 
+              fill="url(#inner-gradient)" 
+              stroke="#c4b5d9" 
+              strokeWidth="0.5"
+            />
+            
+            {/* Light reflection */}
+            <path 
+              d="M22 12L26 16" 
+              stroke="white" 
+              strokeWidth="0.8" 
+              strokeOpacity="0.7"
+            />
+            
+            {/* Define gradients */}
+            <defs>
+              <linearGradient id="diamond-gradient" x1="10" y1="10" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#a78bda" />
+                <stop offset="100%" stopColor="#7e57c2" />
+              </linearGradient>
+              <linearGradient id="inner-gradient" x1="15" y1="15" x2="35" y2="35" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#9c7ad0" />
+                <stop offset="100%" stopColor="#6c45b6" />
+              </linearGradient>
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="2" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+          </svg>
 
-          {/* Text "Crystals for Kids" under diamond - mimicking logo style */}
+          {/* Text underneath */}
           <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-center w-full">
             <div className="font-serif text-xs text-purple-200 tracking-wide">HEALING THROUGH VISUAL THERAPY</div>
           </div>
