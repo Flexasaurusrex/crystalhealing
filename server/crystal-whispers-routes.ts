@@ -105,8 +105,18 @@ const updateCrystalWhispersImage = async (crystalType: string, imageUrl: string)
 // Route to get all Crystal Whispers images
 router.get('/crystal-whispers-images', async (_req: Request, res: Response) => {
   try {
+    // Add no-cache headers to prevent browser caching
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    
     const images = await getCrystalWhispersImages();
-    return res.json(images);
+    
+    // Add timestamp to force new data on each request
+    return res.json({
+      ...images,
+      _timestamp: Date.now()
+    });
   } catch (error) {
     console.error('Error getting Crystal Whispers images:', error);
     return res.status(500).json({ error: 'Failed to get Crystal Whispers images' });
