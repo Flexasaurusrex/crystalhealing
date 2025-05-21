@@ -116,16 +116,16 @@ export function GallerySection() {
 
   // Default fallback images (only used if API fails to load)
   const defaultImages = {
-    amethyst: "/placeholder-amethyst.png",
-    clearQuartz: "/placeholder-clear-quartz.png",
-    roseQuartz: "/placeholder-rose-quartz.png",
-    fluorite: "/placeholder-fluorite.png",
-    selenite: "/placeholder-selenite.png",
-    citrine: "/placeholder-citrine.png"
+    amethyst: "/uploads/image-1747855344623-346094917.png",
+    clearQuartz: "/uploads/image-1747855353211-191913422.png",
+    roseQuartz: "/uploads/image-1747855361665-997601937.png",
+    fluorite: "/uploads/image-1747855370106-86124521.png",
+    selenite: "/uploads/image-1747855376999-711213991.png",
+    citrine: "/uploads/image-1747855384247-688212760.png"
   };
 
   // Get gallery images from the API response
-  const galleryImages = sectionImages?.gallery || {};
+  const galleryImages = sectionImages?.gallery || defaultImages;
 
   // Convert the data to the format needed for crystal cards
   const crystals = crystalData.map(crystal => {
