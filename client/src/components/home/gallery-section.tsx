@@ -49,7 +49,7 @@ function CrystalCard({ image, title, description, tag, tagColor, price, delay }:
 export function GallerySection() {
   const crystals = [
     {
-      image: "https://pixabay.com/get/gb3069699879036b9d50b872c8b8e334f354ea98c77b831f4e0c7168a5df5a7bc7087c4809e3d9b5836a683c7ad606c7abb43970bf42d2b1898007c116141293a_1280.jpg",
+      image: "/uploads/image-1747849745370-115514031.png",
       title: "Amethyst Clusters",
       description: "These purple beauties are among our most popular donations, with their striking color and fascinating geometric crystal formations.",
       tag: "Most requested",
@@ -58,7 +58,7 @@ export function GallerySection() {
       delay: 1
     },
     {
-      image: "https://pixabay.com/get/g72eedb20bfeb136fd62ecce4230b59344d7548e69f8cbdc1f59b9743cf07299a6439184c78558ee1a2576895ff9c3fbd207119bfa6edc9984dcb7ab9fe904278_1280.jpg",
+      image: "/uploads/image-1747849839811-417506369.png",
       title: "Clear Quartz Points",
       description: "These crystal points catch and reflect light beautifully, creating rainbow prisms that delight children of all ages.",
       tag: "Great for all ages",
@@ -67,7 +67,7 @@ export function GallerySection() {
       delay: 2
     },
     {
-      image: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=800&h=600",
+      image: "/uploads/image-1747849325361-238788183.jpeg",
       title: "Rose Quartz",
       description: "With their gentle pink color, these stones are particularly popular with younger children and create a calming visual experience.",
       tag: "Calming effect",
@@ -76,7 +76,7 @@ export function GallerySection() {
       delay: 3
     },
     {
-      image: "https://pixabay.com/get/g2b05943b68c07bb1f534c21ab5ac5e07690dc6e0ed3fe4235dc95ba78bf57a5ab5611eb7216b27a961dd52f9d83db3c27ab023ec56056fe6ec07041d552a3c8a_1280.jpg",
+      image: "/uploads/image-1747850014807-838160829.png",
       title: "Fluorite",
       description: "These multi-colored crystals feature bands of purple, green, and blue, making them particularly fascinating visual tools.",
       tag: "Color variety",
@@ -85,7 +85,7 @@ export function GallerySection() {
       delay: 4
     },
     {
-      image: "https://pixabay.com/get/gaf2dfd37b208207498f52f6fb9db7c1c9363a5d38cf1f695aee597dee8428602c556354b5d49c219daf1aea0731f48915f977dea4d263efa8437060482094528_1280.jpg",
+      image: "/uploads/image-1747850244264-747089433.png",
       title: "Selenite",
       description: "These luminous white crystals have a gentle glow and fibrous texture that children find both calming and intriguing.",
       tag: "Gentle glow",
@@ -94,7 +94,7 @@ export function GallerySection() {
       delay: 5
     },
     {
-      image: "https://pixabay.com/get/ga1dfd8e8022b4a62118291b166b0d728b52e305e8d8cd7fa3b8169cb59cbc0c93e5397ee13731c0aa2d4502a108eecacbcc9652b18d3fbb57a8a9abab2f35f16_1280.jpg",
+      image: "/uploads/image-1747850443498-996657443.png",
       title: "Citrine",
       description: "With their sunny yellow color, these crystals bring a bright energy to any room and are especially popular in long-term care settings.",
       tag: "Brightens spaces",
