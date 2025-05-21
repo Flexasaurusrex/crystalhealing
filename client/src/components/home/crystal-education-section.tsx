@@ -13,8 +13,8 @@ const crystalProperties = [
     icon: <Sparkles className="h-6 w-6" />,
     description: "Amethyst crystals are like little purple healers. They help bring peaceful feelings when you look at them.",
     funFact: "Ancient people believed amethyst could protect them from bad dreams!",
-    promptDetails: "A purple amethyst crystal with natural facets and points. The crystal should have a deep violet color with translucent quality that allows light to pass through. Show the natural hexagonal crystal structure with pyramid-shaped terminations.",
-    imageSrc: "https://www.crystalvaults.com/wp-content/uploads/2022/05/920b4e031b1adf2ceb4e01a5e2b7d1cb.jpg"
+    promptDetails: "A purple amethyst crystal with natural facets and points.",
+    imageSrc: "https://geology.com/gemstones/amethyst/amethyst-crystal-cluster.jpg"
   },
   {
     id: "love",
@@ -24,8 +24,8 @@ const crystalProperties = [
     icon: <Heart className="h-6 w-6" />,
     description: "Rose quartz is a gentle pink crystal that reminds us to be kind to ourselves and others.",
     funFact: "Rose quartz is sometimes called the 'love stone' because of its pretty pink color!",
-    promptDetails: "A rose quartz crystal specimen with a soft pink color. The crystal should have a gentle, opaque or translucent quality with a subtle, comforting glow. The surface should have a smooth, polished appearance typical of tumbled rose quartz.",
-    imageSrc: "https://cdn.shopify.com/s/files/1/0073/3732/9111/files/rose_quartz_1.jpg"
+    promptDetails: "A rose quartz crystal specimen with a soft pink color.",
+    imageSrc: "https://geology.com/minerals/photos/rose-quartz.jpg"
   },
   {
     id: "clarity",
@@ -35,8 +35,8 @@ const crystalProperties = [
     icon: <Droplet className="h-6 w-6" />,
     description: "Clear quartz is like a bright light for your thoughts, helping you think happy, clear thoughts.",
     funFact: "Clear quartz can create rainbows when sunlight shines through it!",
-    promptDetails: "A clear quartz crystal point with excellent clarity. The crystal should be transparent and prismatic, showing its natural hexagonal structure with a pointed termination. It should have a glass-like appearance with internal refraction creating small rainbow effects where light hits it.",
-    imageSrc: "https://cdn.shopify.com/s/files/1/1302/1049/products/10-Clear_Quartz_Crystal_1_1000x.jpg"
+    promptDetails: "A clear quartz crystal point with excellent clarity.",
+    imageSrc: "https://cdn.shopify.com/s/files/1/0273/4662/6285/products/QuartzPoint-ClearQuartzCrystalPoint-Crystal-Magic-Minerals-11_1.jpg"
   },
   {
     id: "energy",
@@ -46,8 +46,8 @@ const crystalProperties = [
     icon: <Sun className="h-6 w-6" />,
     description: "Citrine is a sunny crystal that brings happy, bright feelings just like a summer day.",
     funFact: "Citrine is one of the few crystals that never needs cleaning - it's always happy!",
-    promptDetails: "A natural citrine crystal with a warm golden yellow color. The crystal should have a honey-like appearance with natural facets that reflect light. Show the crystal's transparent to translucent quality with a cheerful, sunny glow that captures its energetic properties.",
-    imageSrc: "https://cdn.shopify.com/s/files/1/1302/1049/products/Natural_Citrine_Crystal_Point_3_1000x.jpg"
+    promptDetails: "A natural citrine crystal with a warm golden yellow color.",
+    imageSrc: "https://i.etsystatic.com/29800350/r/il/23a1ec/3163136207/il_fullxfull.3163136207_gzf7.jpg"
   },
   {
     id: "calm",
@@ -57,8 +57,8 @@ const crystalProperties = [
     icon: <Moon className="h-6 w-6" />,
     description: "Selenite is a soft glowing crystal that helps bring peaceful sleep and calm dreams.",
     funFact: "Selenite is named after Selene, the Greek goddess of the moon!",
-    promptDetails: "A selenite crystal wand or tower with a pearly white, luminous appearance. The crystal should have a fibrous structure with a silky, striated surface that gives it a moonlight glow. Show its typical elongated form with a gentle translucence that diffuses light beautifully.",
-    imageSrc: "https://cdn.shopify.com/s/files/1/0662/3026/1446/files/Selenite_Chunk.jpg"
+    promptDetails: "A selenite crystal wand or tower with a pearly white, luminous appearance.",
+    imageSrc: "https://geology.com/minerals/photos/selenite-gypsum-260.jpg"
   },
   {
     id: "protection",
@@ -68,8 +68,8 @@ const crystalProperties = [
     icon: <Zap className="h-6 w-6" />,
     description: "Fluorite comes in many colors and helps you feel brave when things seem scary.",
     funFact: "Fluorite can glow in the dark under special lights - like magic!",
-    promptDetails: "A fluorite crystal showing its characteristic cubic or octahedral structure with bands of green, purple, and blue colors. The crystal should demonstrate fluorite's natural color zoning with multiple colors in a single specimen. Show its glassy luster and transparent to translucent quality.",
-    imageSrc: "https://cdn.shopify.com/s/files/1/1302/1049/products/Rainbow_Fluorite_with_Green_Flash_from_Mexico_2_1000x.jpg"
+    promptDetails: "A fluorite crystal showing its characteristic cubic or octahedral structure with bands of green, purple, and blue colors.",
+    imageSrc: "https://geology.com/minerals/photos/fluorite-85.jpg"
   }
 ];
 
