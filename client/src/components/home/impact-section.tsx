@@ -20,8 +20,9 @@ export function ImpactSection() {
           </p>
         </motion.div>
         
+        {/* Medical Case Study Section */}
         <motion.div 
-          className="bg-white dark:bg-gray-900 rounded-2xl p-12 shadow-lg relative overflow-hidden mb-12"
+          className="bg-white dark:bg-gray-900 rounded-2xl p-8 md:p-12 shadow-lg relative overflow-hidden mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -30,26 +31,105 @@ export function ImpactSection() {
           <div className="absolute -top-10 -right-10 w-40 h-40 bg-purple-100 dark:bg-purple-900/30 rounded-full blur-3xl opacity-70"></div>
           <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-pink-100 dark:bg-pink-900/30 rounded-full blur-3xl opacity-70"></div>
           
-          <Quote className="h-16 w-16 text-purple-200 dark:text-purple-800 mx-auto mb-8" />
-          
-          <h3 className="font-playfair font-bold text-2xl md:text-3xl text-center text-[hsl(var(--purple-800))] dark:text-purple-300 mb-6">
-            Impact Stories Coming Soon
-          </h3>
-          
-          <p className="text-gray-600 dark:text-gray-300 text-center max-w-3xl mx-auto text-lg mb-8">
-            Once our program launches, we'll share real stories from children, families, and healthcare providers about how 
-            our crystal donations have made a positive impact on their healing journey.
-          </p>
-          
-          <div className="flex justify-center space-x-4">
-            <div className="bg-purple-50 dark:bg-purple-900/20 rounded-full px-6 py-2 flex items-center">
-              <span className="text-[hsl(var(--purple-500))] font-medium">Children's Stories</span>
+          <div className="flex flex-col lg:flex-row gap-8">
+            <div className="lg:w-1/2">
+              <div className="inline-block bg-purple-100 dark:bg-purple-900/30 rounded-lg px-4 py-2 mb-6">
+                <span className="text-[hsl(var(--purple-500))] font-semibold">Proposed Research Opportunity</span>
+              </div>
+              
+              <h3 className="font-playfair font-bold text-2xl md:text-3xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-5">
+                Visual Therapy: The Potential of Crystals in Pediatric Care
+              </h3>
+              
+              <div className="space-y-4 text-gray-600 dark:text-gray-300">
+                <p>
+                  With your support, we can initiate a groundbreaking observational study examining the effects of crystalline formations as visual therapy tools in pediatric care units, focusing on how these natural wonders affect children's well-being.
+                </p>
+                
+                <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 border-l-4 border-[hsl(var(--purple-500))] my-6">
+                  <p className="font-medium text-[hsl(var(--purple-800))] dark:text-purple-300">Research Goals:</p>
+                  <ul className="list-disc list-inside mt-2 space-y-1">
+                    <li>Measure changes in patient-reported feelings of calm when interacting with crystal displays</li>
+                    <li>Track anxiety score variations using established pediatric assessment scales</li>
+                    <li>Document observable changes in stress-related behaviors during medical procedures</li>
+                    <li>Collect parent and caregiver feedback on mood and outlook improvements</li>
+                  </ul>
+                </div>
+                
+                <p>
+                  Similar visual therapy studies have shown promising results, suggesting that natural elements like crystalline formations provide unique visual stimulation that can significantly reduce stress and anxiety in pediatric settings.
+                </p>
+                
+                <div className="flex items-center mt-6 bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4">
+                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--purple-500))] flex items-center justify-center mr-4">
+                    <Hospital className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-[hsl(var(--purple-800))] dark:text-purple-300">Partner With Medical Professionals</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Help us collaborate with leading pediatric researchers and hospitals</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="bg-green-50 dark:bg-green-900/20 rounded-full px-6 py-2 flex items-center">
-              <span className="text-[hsl(var(--green-500))] font-medium">Healthcare Feedback</span>
+            
+            <div className="lg:w-1/2 relative">
+              <div className="relative h-full rounded-xl overflow-hidden bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/20 p-6 flex flex-col justify-center">
+                <div className="absolute top-0 right-0 h-40 w-40 bg-[hsl(var(--purple-500))] opacity-10 rounded-full -mr-10 -mt-10"></div>
+                <div className="absolute bottom-0 left-0 h-40 w-40 bg-[hsl(var(--pink-400))] opacity-10 rounded-full -ml-10 -mb-10"></div>
+                
+                <h4 className="font-playfair font-bold text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-5 relative z-10">
+                  Potential Areas of Impact
+                </h4>
+                
+                <div className="space-y-6 relative z-10">
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="font-medium text-[hsl(var(--purple-800))] dark:text-purple-300">Anxiety Management</span>
+                      <span className="text-amber-500 font-semibold">To Be Measured</span>
+                    </div>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Investigating how crystal displays may help children manage stress during hospital stays</p>
+                  </div>
+                  
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="font-medium text-[hsl(var(--purple-800))] dark:text-purple-300">Mood Enhancement</span>
+                      <span className="text-amber-500 font-semibold">To Be Studied</span>
+                    </div>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Exploring the potential for natural crystal displays to elevate emotional well-being</p>
+                  </div>
+                  
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="font-medium text-[hsl(var(--purple-800))] dark:text-purple-300">Procedural Comfort</span>
+                      <span className="text-amber-500 font-semibold">To Be Assessed</span>
+                    </div>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Examining if crystals can serve as visual focal points during medical procedures</p>
+                  </div>
+                  
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="font-medium text-[hsl(var(--purple-800))] dark:text-purple-300">Healing Environment</span>
+                      <span className="text-amber-500 font-semibold">To Be Evaluated</span>
+                    </div>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Analyzing how crystals contribute to creating calming, therapeutic spaces</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="bg-pink-50 dark:bg-pink-900/20 rounded-full px-6 py-2 flex items-center">
-              <span className="text-[hsl(var(--pink-400))] font-medium">Family Testimonials</span>
+          </div>
+          
+          <div className="flex flex-wrap justify-center mt-10 gap-3">
+            <div className="bg-purple-50 dark:bg-purple-900/20 rounded-full px-5 py-2 flex items-center">
+              <span className="text-[hsl(var(--purple-500))] font-medium">Research Potential</span>
+            </div>
+            <div className="bg-green-50 dark:bg-green-900/20 rounded-full px-5 py-2 flex items-center">
+              <span className="text-[hsl(var(--green-500))] font-medium">Hospital Partnerships</span>
+            </div>
+            <div className="bg-pink-50 dark:bg-pink-900/20 rounded-full px-5 py-2 flex items-center">
+              <span className="text-[hsl(var(--pink-400))] font-medium">Therapeutic Innovation</span>
+            </div>
+            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-full px-5 py-2 flex items-center">
+              <span className="text-blue-500 font-medium">Child-Centered Design</span>
             </div>
           </div>
         </motion.div>
