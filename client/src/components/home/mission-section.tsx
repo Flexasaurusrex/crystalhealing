@@ -154,11 +154,11 @@ export function MissionSection() {
               </div>
             </div>
             <div className="lg:w-1/2 order-1 lg:order-2 flex items-center">
-              <div className="w-full h-full py-8 px-6 flex items-center justify-center">
+              <div className="w-full h-full py-5 px-4 flex items-center justify-center">
                 <InPlaceImageEditor
                   currentImageUrl={missionImage}
                   altText="Crystal display showing clear quartz points"
-                  className="w-[90%] h-auto max-h-[500px] object-contain mx-auto"
+                  className="w-[95%] h-auto max-h-[550px] object-contain mx-auto"
                   onImageUpdated={(newUrl) => setMissionImage(newUrl)}
                 />
               </div>
