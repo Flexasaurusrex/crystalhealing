@@ -91,7 +91,7 @@ export default function AdminWhispersPage() {
       .replace(/^./, str => str.toUpperCase()); // Capitalize first letter
   };
 
-  // Handle direct crystal image uploads
+  // Handle direct crystal image uploads using our simple uploader
   const handleImageUpload = async (crystalId: string, file: File) => {
     if (!file) return;
     
@@ -100,10 +100,9 @@ export default function AdminWhispersPage() {
     // Create a FormData object to send the file
     const formData = new FormData();
     formData.append('image', file);
-    formData.append('crystal', crystalId);
     
     try {
-      const response = await fetch('/api/upload-crystal-image', {
+      const response = await fetch('/api/simple-upload', {
         method: 'POST',
         body: formData,
       });
@@ -123,11 +122,14 @@ export default function AdminWhispersPage() {
       }
       
       // Update the state with the new image URL
-      if (data.imageUrl) {
+      if (data.url) {
         setCrystalImages(prev => ({
           ...prev,
-          [crystalId]: data.imageUrl
+          [crystalId]: data.url
         }));
+        
+        // Save the crystal image mapping somewhere if needed
+        // For now, we'll just update the UI
       }
         
       toast({
