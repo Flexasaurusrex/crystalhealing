@@ -7,7 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/lib/theme-provider";
 import { HelmetProvider } from "react-helmet-async";
 import HomePage from "@/pages/home";
-import AdminPage from "@/pages/admin";
+import SimpleAdminPage from "@/pages/simple-admin";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -15,8 +15,7 @@ function Router() {
     <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
       <Switch>
         <Route path="/" component={HomePage} />
-        <Route path="/admin" component={AdminPage} />
-        <Route path="/admin/crystal-whispers" component={React.lazy(() => import('./pages/admin-whispers'))} />
+        <Route path="/admin" component={SimpleAdminPage} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>

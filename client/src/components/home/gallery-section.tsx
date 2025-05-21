@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
+import { InPlaceImageEditor } from "@/components/admin/InPlaceImageEditor";
 
 interface CrystalCardProps {
   image: string;
