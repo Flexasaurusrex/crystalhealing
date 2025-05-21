@@ -1,0 +1,221 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Sparkles, Heart, Droplet, Sun, Moon, Zap } from "lucide-react";
+
+// Crystal properties data with child-friendly descriptions and fun facts
+const crystalProperties = [
+  {
+    id: "healing",
+    name: "Gentle Healing",
+    crystal: "Amethyst",
+    color: "purple",
+    icon: <Sparkles className="h-6 w-6" />,
+    description: "Amethyst crystals are like little purple healers. They help bring peaceful feelings when you look at them.",
+    funFact: "Ancient people believed amethyst could protect them from bad dreams!",
+    imageSrc: "https://images.pexels.com/photos/1573469/pexels-photo-1573469.jpeg?auto=compress&cs=tinysrgb&w=800&h=600"
+  },
+  {
+    id: "love",
+    name: "Kindness & Love",
+    crystal: "Rose Quartz",
+    color: "pink",
+    icon: <Heart className="h-6 w-6" />,
+    description: "Rose quartz is a gentle pink crystal that reminds us to be kind to ourselves and others.",
+    funFact: "Rose quartz is sometimes called the 'love stone' because of its pretty pink color!",
+    imageSrc: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=800&h=600"
+  },
+  {
+    id: "clarity",
+    name: "Clear Thoughts",
+    crystal: "Clear Quartz",
+    color: "blue",
+    icon: <Droplet className="h-6 w-6" />,
+    description: "Clear quartz is like a bright light for your thoughts, helping you think happy, clear thoughts.",
+    funFact: "Clear quartz can create rainbows when sunlight shines through it!",
+    imageSrc: "https://images.pexels.com/photos/1130304/pexels-photo-1130304.jpeg?auto=compress&cs=tinysrgb&w=800&h=600"
+  },
+  {
+    id: "energy",
+    name: "Happy Energy",
+    crystal: "Citrine",
+    color: "yellow",
+    icon: <Sun className="h-6 w-6" />,
+    description: "Citrine is a sunny crystal that brings happy, bright feelings just like a summer day.",
+    funFact: "Citrine is one of the few crystals that never needs cleaning - it's always happy!",
+    imageSrc: "https://images.pexels.com/photos/2517981/pexels-photo-2517981.jpeg?auto=compress&cs=tinysrgb&w=800&h=600"
+  },
+  {
+    id: "calm",
+    name: "Peaceful Dreams",
+    crystal: "Selenite",
+    color: "gray",
+    icon: <Moon className="h-6 w-6" />,
+    description: "Selenite is a soft glowing crystal that helps bring peaceful sleep and calm dreams.",
+    funFact: "Selenite is named after Selene, the Greek goddess of the moon!",
+    imageSrc: "https://images.pexels.com/photos/7419969/pexels-photo-7419969.jpeg?auto=compress&cs=tinysrgb&w=800&h=600"
+  },
+  {
+    id: "protection",
+    name: "Brave Shield",
+    crystal: "Fluorite",
+    color: "green",
+    icon: <Zap className="h-6 w-6" />,
+    description: "Fluorite comes in many colors and helps you feel brave when things seem scary.",
+    funFact: "Fluorite can glow in the dark under special lights - like magic!",
+    imageSrc: "https://images.pexels.com/photos/7650616/pexels-photo-7650616.jpeg?auto=compress&cs=tinysrgb&w=800&h=600"
+  }
+];
+
+export function CrystalEducationSection() {
+  const [selectedProperty, setSelectedProperty] = useState<string | null>(null);
+  
+  // Find the currently selected property
+  const activeProperty = crystalProperties.find(prop => prop.id === selectedProperty);
+
+  return (
+    <section id="crystal-education" className="py-16 sm:py-20 bg-gradient-to-b from-white to-purple-50 dark:from-gray-900 dark:to-purple-950/20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          className="text-center mb-12 sm:mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="font-playfair font-bold text-3xl md:text-4xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-3 sm:mb-4">Crystal Whispers</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-[hsl(var(--purple-500))] to-[hsl(var(--pink-400))] mx-auto mb-4 sm:mb-6"></div>
+          <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-sm sm:text-base">
+            Discover the gentle magic of crystals through our child-friendly crystal guide. 
+            Click on each crystal property to learn about the special qualities these natural wonders share with us.
+          </p>
+        </motion.div>
+        
+        {/* Crystal Properties Selection */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
+          {crystalProperties.map((property) => (
+            <motion.button
+              key={property.id}
+              className={`p-4 rounded-xl flex flex-col items-center justify-center transition-all
+                ${selectedProperty === property.id 
+                  ? "bg-purple-100 dark:bg-purple-900/30 ring-2 ring-purple-500" 
+                  : 'bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700'}`}
+              onClick={() => setSelectedProperty(property.id)}
+              whileHover={{ y: -5 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-3 
+                ${property.color === 'purple' ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-500' : ''}
+                ${property.color === 'pink' ? 'bg-pink-100 dark:bg-pink-900/30 text-pink-500' : ''}
+                ${property.color === 'blue' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-500' : ''}
+                ${property.color === 'yellow' ? 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-500' : ''}
+                ${property.color === 'gray' ? 'bg-gray-100 dark:bg-gray-900/30 text-gray-500' : ''}
+                ${property.color === 'green' ? 'bg-green-100 dark:bg-green-900/30 text-green-500' : ''}
+              `}>
+                {property.icon}
+              </div>
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{property.name}</span>
+            </motion.button>
+          ))}
+        </div>
+        
+        {/* Content Display Area */}
+        <AnimatePresence mode="wait">
+          {selectedProperty ? (
+            <motion.div
+              key={selectedProperty}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden max-w-3xl mx-auto"
+            >
+              <div className="p-6 sm:p-8">
+                <div className="flex flex-col sm:flex-row items-center mb-6">
+                  <div className={`w-16 h-16 rounded-full flex items-center justify-center mr-4 
+                    ${activeProperty?.color === 'purple' ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-500' : ''}
+                    ${activeProperty?.color === 'pink' ? 'bg-pink-100 dark:bg-pink-900/30 text-pink-500' : ''}
+                    ${activeProperty?.color === 'blue' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-500' : ''}
+                    ${activeProperty?.color === 'yellow' ? 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-500' : ''}
+                    ${activeProperty?.color === 'gray' ? 'bg-gray-100 dark:bg-gray-900/30 text-gray-500' : ''}
+                    ${activeProperty?.color === 'green' ? 'bg-green-100 dark:bg-green-900/30 text-green-500' : ''}
+                  `}>
+                    {activeProperty?.icon}
+                  </div>
+                  <div className="text-center sm:text-left mt-4 sm:mt-0">
+                    <h3 className="font-playfair font-bold text-xl text-[hsl(var(--purple-800))] dark:text-purple-300">{activeProperty?.name}</h3>
+                    <p className="text-gray-600 dark:text-gray-400 font-medium">{activeProperty?.crystal} Crystal</p>
+                  </div>
+                </div>
+                
+                {/* Crystal Image & Info Area */}
+                <div className="flex flex-col sm:flex-row items-center mb-6">
+                  <div className="w-full sm:w-1/2 mb-6 sm:mb-0 sm:pr-6">
+                    <div className="aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 flex items-center justify-center relative">
+                      {/* Crystal Image */}
+                      <img 
+                        src={activeProperty?.imageSrc} 
+                        alt={`${activeProperty?.crystal} crystal`}
+                        className="w-full h-full object-cover"
+                      />
+                      
+                      {/* Sparkles overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-50" />
+                      {[...Array(8)].map((_, i) => (
+                        <motion.div
+                          key={`sparkle-${i}`}
+                          className="absolute rounded-full bg-white"
+                          style={{
+                            width: 3 + Math.random() * 4,
+                            height: 3 + Math.random() * 4,
+                            top: `${10 + Math.random() * 80}%`,
+                            left: `${10 + Math.random() * 80}%`,
+                          }}
+                          animate={{
+                            opacity: [0, 0.8, 0],
+                            scale: [0.8, 1.2, 0.8],
+                          }}
+                          transition={{
+                            repeat: Infinity,
+                            duration: 1.5 + Math.random() * 2,
+                            delay: Math.random() * 2,
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="w-full sm:w-1/2">
+                    <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base mb-4">
+                      {activeProperty?.description}
+                    </p>
+                    <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-4">
+                      <h4 className="font-bold text-amber-700 dark:text-amber-300 text-sm mb-2">Fun Crystal Fact:</h4>
+                      <p className="text-amber-800 dark:text-amber-200 text-sm">{activeProperty?.funFact}</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="flex justify-center">
+                  <button 
+                    onClick={() => setSelectedProperty(null)} 
+                    className="text-sm text-gray-500 hover:text-[hsl(var(--purple-500))] transition-colors"
+                  >
+                    ← See other crystal properties
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="text-center py-8"
+            >
+              <p className="text-gray-500 dark:text-gray-400 italic">Click on a crystal property above to learn more!</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+}
