@@ -60,26 +60,26 @@ export function HeroSection() {
         </motion.div>
         
         <motion.div 
-          className="mt-16 md:mt-24 flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8"
+          className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 container mx-auto max-w-4xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center justify-center space-x-4">
             <div className="bg-white dark:bg-gray-800 rounded-full p-3 shadow-sm">
               <Hospital className="h-6 w-6 text-gray-500 dark:text-gray-400" />
             </div>
             <span className="font-medium text-gray-600 dark:text-gray-300">Seeking Hospital Partnerships</span>
           </div>
           
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center justify-center space-x-4">
             <div className="bg-white dark:bg-gray-800 rounded-full p-3 shadow-sm">
               <Heart className="h-6 w-6 text-[hsl(var(--pink-400))]" />
             </div>
             <span className="font-medium text-gray-600 dark:text-gray-300">Launching in 2025</span>
           </div>
           
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center justify-center space-x-4">
             <div className="bg-white dark:bg-gray-800 rounded-full p-3 shadow-sm">
               <Gem className="h-6 w-6 text-[hsl(var(--purple-500))]" />
             </div>
