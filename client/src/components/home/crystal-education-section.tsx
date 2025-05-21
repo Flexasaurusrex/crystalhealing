@@ -5,6 +5,18 @@ import { apiRequest } from "@/lib/queryClient";
 import { InPlaceImageEditor } from "@/components/admin/InPlaceImageEditor";
 import { useQuery } from "@tanstack/react-query";
 
+// Interface for crystal whispers images data from the server
+interface CrystalWhispersImages {
+  main: string;
+  amethyst: string;
+  roseQuartz: string;
+  clearQuartz: string;
+  citrine: string;
+  selenite: string;
+  fluorite: string;
+  [key: string]: string;
+}
+
 // Crystal properties data with child-friendly descriptions and fun facts
 const crystalProperties = [
   {
@@ -81,7 +93,7 @@ export function CrystalEducationSection() {
   const [isGenerating, setIsGenerating] = useState<Record<string, boolean>>({});
   
   // Fetch saved crystal images
-  const { data: savedImages, isLoading: isLoadingImages } = useQuery({
+  const { data: savedImages, isLoading: isLoadingImages } = useQuery<CrystalWhispersImages>({
     queryKey: ['/api/crystal-whispers-images'],
     staleTime: 1000 * 60 * 5, // 5 minutes
   });
