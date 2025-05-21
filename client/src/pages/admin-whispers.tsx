@@ -112,7 +112,15 @@ export default function AdminWhispersPage() {
         throw new Error(`Failed to upload image: ${response.statusText}`);
       }
       
-      const data = await response.json();
+      // Safely parse the JSON response
+      let data;
+      try {
+        const text = await response.text();
+        data = JSON.parse(text);
+      } catch (parseError) {
+        console.error("Error parsing response:", parseError);
+        throw new Error("Error parsing server response");
+      }
       
       // Update the state with the new image URL
       if (data.imageUrl) {

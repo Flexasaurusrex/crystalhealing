@@ -30,9 +30,9 @@ const storageConfig = multer.diskStorage({
       cb(error);
     }
   },
-  filename: (req: Express.Request, file: Express.Multer.File, cb: Function) => {
+  filename: (req: any, file: Express.Multer.File, cb: Function) => {
     // Create a filename based on the crystal type
-    const crystalType = req.body.crystal || 'unknown';
+    const crystalType = req.body && req.body.crystal ? req.body.crystal : 'unknown';
     const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1E9)}`;
     const ext = path.extname(file.originalname);
     cb(null, `${crystalType}-${uniqueSuffix}${ext}`);
