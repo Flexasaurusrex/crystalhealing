@@ -18,13 +18,13 @@ function CrystalCard({ image, title, description, tag, tagColor, price, delay }:
 
   return (
     <motion.div 
-      className="h-[500px] md:h-[550px] bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+      className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col h-full"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: delay * 0.1, duration: 0.5 }}
     >
-      <div className="h-[250px] md:h-[280px] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
+      <div className="aspect-video w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
         <InPlaceImageEditor
           currentImageUrl={crystalImage}
           altText={title}
@@ -32,7 +32,7 @@ function CrystalCard({ image, title, description, tag, tagColor, price, delay }:
           onImageUpdated={(newUrl) => setCrystalImage(newUrl)}
         />
       </div>
-      <div className="p-5 md:p-6 h-[250px] md:h-[270px] flex flex-col">
+      <div className="p-5 md:p-6 flex flex-col flex-grow">
         <h3 className="font-playfair font-semibold text-lg md:text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-2 md:mb-3">{title}</h3>
         <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 md:mb-6 flex-1">
           {description}
