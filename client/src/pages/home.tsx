@@ -6,6 +6,7 @@ import { AboutSection } from "@/components/home/about-section";
 import { GallerySection } from "@/components/home/gallery-section";
 import { ImpactSection } from "@/components/home/impact-section";
 import { DonateSection } from "@/components/home/donate-section";
+import { CrystalWhispersSection } from "@/components/home/crystal-whispers-section";
 import { Helmet } from "react-helmet-async";
 
 export default function HomePage() {
@@ -51,6 +52,7 @@ export default function HomePage() {
         <MissionSection />
         <AboutSection />
         <GallerySection />
+        <CrystalWhispersSection />
         <ImpactSection />
         <DonateSection />
       </main>

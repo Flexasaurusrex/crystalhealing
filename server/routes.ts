@@ -3,8 +3,11 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { contactFormSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
+import crystalImageRoutes from './crystal-image-routes';
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Register crystal image generation routes
+  app.use('/api', crystalImageRoutes);
   // Contact form submissions
   app.post("/api/contact", async (req: Request, res: Response) => {
     try {
