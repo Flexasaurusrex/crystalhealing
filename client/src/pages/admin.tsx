@@ -440,6 +440,27 @@ export default function AdminPage() {
             
             <Separator className="my-6" />
             
+            {/* Crystal Whispers Section - Special handling */}
+            <div>
+              <h2 className="text-xl font-semibold mb-4">Crystal Whispers Section</h2>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                Upload images for each crystal in the Crystal Whispers interactive section
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {crystalWhispersImages.map(crystal => (
+                  <ImageUploadCard 
+                    key={crystal.id}
+                    title={crystal.title} 
+                    description={crystal.description}
+                    sectionId={`crystalWhispers.${crystal.id}`}
+                    currentImage={sectionImages.crystalWhispers?.[crystal.id]}
+                  />
+                ))}
+              </div>
+            </div>
+            
+            <Separator className="my-6" />
+            
             {/* Crystal Gallery Images */}
             <div>
               <h2 className="text-xl font-semibold mb-4">Crystal Gallery Images</h2>
