@@ -54,12 +54,14 @@ export function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
           >
-            <InPlaceImageEditor
-              currentImageUrl={heroImage}
-              altText="Amethyst crystal display by hospital bedside"
-              className="rounded-2xl shadow-xl w-full h-auto object-cover transform md:translate-x-8"
-              onImageUpdated={(newUrl) => setHeroImage(newUrl)}
-            />
+            <div className="rounded-2xl shadow-xl overflow-hidden bg-gray-100 dark:bg-gray-800">
+              <InPlaceImageEditor
+                currentImageUrl={heroImage}
+                altText="Amethyst crystal display by hospital bedside"
+                className="w-full h-auto object-contain transform md:translate-x-8"
+                onImageUpdated={(newUrl) => setHeroImage(newUrl)}
+              />
+            </div>
           </motion.div>
         </motion.div>
         

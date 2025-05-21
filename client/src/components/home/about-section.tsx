@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { Hospital, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { InPlaceImageEditor } from "@/components/admin/InPlaceImageEditor";
 
 export function AboutSection() {
+  const [aboutImage, setAboutImage] = useState("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=800");
   return (
     <section id="about" className="py-20 bg-[hsl(var(--stone-50))] dark:bg-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,11 +17,14 @@ export function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <img 
-              src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=800" 
-              alt="Healing hospital space with natural elements" 
-              className="rounded-2xl shadow-xl w-full h-auto" 
-            />
+            <div className="rounded-2xl shadow-xl overflow-hidden bg-gray-100 dark:bg-gray-800">
+              <InPlaceImageEditor
+                currentImageUrl={aboutImage}
+                altText="Healing hospital space with natural elements"
+                className="w-full h-auto object-contain"
+                onImageUpdated={(newUrl) => setAboutImage(newUrl)}
+              />
+            </div>
           </motion.div>
           
           <motion.div 
