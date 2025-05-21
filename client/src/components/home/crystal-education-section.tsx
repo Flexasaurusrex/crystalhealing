@@ -197,10 +197,10 @@ export function CrystalEducationSection() {
                 {/* Crystal Image & Info Area */}
                 <div className="flex flex-col sm:flex-row items-center mb-6">
                   <div className="w-full sm:w-1/2 mb-6 sm:mb-0 sm:pr-6">
-                    <div className="aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 flex items-center justify-center relative">
+                    <div className="aspect-square rounded-xl overflow-hidden relative">
                       {/* Crystal Image */}
                       {activeProperty && isGenerating[activeProperty.id] ? (
-                        <div className="flex flex-col items-center justify-center w-full h-full">
+                        <div className="flex flex-col items-center justify-center w-full h-full bg-gray-100 dark:bg-gray-800">
                           <Loader2 className="w-10 h-10 text-purple-500 animate-spin mb-3" />
                           <p className="text-sm text-gray-500 dark:text-gray-400">Creating custom {activeProperty.crystal} image...</p>
                         </div>
