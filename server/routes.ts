@@ -6,6 +6,7 @@ import { fromZodError } from "zod-validation-error";
 import crystalImageRoutes from './crystal-image-routes';
 import adminRoutes from './admin-routes';
 import crystalWhispersRoutes from './crystal-whispers-routes';
+import directUploadRoutes from './direct-upload-routes';
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Register crystal image generation routes
@@ -16,6 +17,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   // Register Crystal Whispers routes
   app.use('/api', crystalWhispersRoutes);
+  
+  // Register direct upload routes
+  app.use('/api', directUploadRoutes);
   // Contact form submissions
   app.post("/api/contact", async (req: Request, res: Response) => {
     try {
