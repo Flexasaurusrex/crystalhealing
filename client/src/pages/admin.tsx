@@ -378,8 +378,18 @@ export default function AdminPage() {
     { id: 'mission', title: 'Mission Section', description: 'Image for mission statement' },
     { id: 'impact', title: 'Impact Section', description: 'Image for impact metrics' },
     { id: 'crystalEducation', title: 'Crystal Education', description: 'Crystal education section image' },
-    { id: 'crystalWhispers', title: 'Crystal Whispers', description: 'Crystal whispers interactive section image' },
     { id: 'donate', title: 'Donate Section', description: 'Image for donation form area' },
+  ];
+  
+  // Crystal Whispers section - special handling for this section
+  const crystalWhispersImages = [
+    { id: 'main', title: 'Main Banner', description: 'Main Crystal Whispers section image' },
+    { id: 'amethyst', title: 'Amethyst', description: 'Amethyst crystal image for Whispers' },
+    { id: 'roseQuartz', title: 'Rose Quartz', description: 'Rose Quartz whispers image' },
+    { id: 'clearQuartz', title: 'Clear Quartz', description: 'Clear Quartz whispers image' },
+    { id: 'citrine', title: 'Citrine', description: 'Citrine whispers image' },
+    { id: 'selenite', title: 'Selenite', description: 'Selenite whispers image' },
+    { id: 'fluorite', title: 'Fluorite', description: 'Fluorite whispers image' },
   ];
 
   const crystalGallery = [

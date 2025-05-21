@@ -75,7 +75,15 @@ const initializeSectionImagesFile = async () => {
         },
         impact: '',
         crystalEducation: '',
-        crystalWhispers: '',
+        crystalWhispers: {
+          main: '',
+          amethyst: '',
+          roseQuartz: '',
+          clearQuartz: '',
+          citrine: '',
+          selenite: '',
+          fluorite: ''
+        },
         donate: ''
       };
       
