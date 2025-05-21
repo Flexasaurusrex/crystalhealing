@@ -51,11 +51,15 @@ export function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
           >
-            <img 
-              src="https://images.pexels.com/photos/5370606/pexels-photo-5370606.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="Purple crystal with healing properties" 
-              className="rounded-2xl shadow-xl w-full h-auto object-cover transform md:translate-x-8" 
-            />
+            <div 
+              className="rounded-2xl shadow-xl w-full h-full min-h-[300px] transform md:translate-x-8 bg-gradient-to-br from-purple-400 via-purple-600 to-indigo-700 flex items-center justify-center"
+            >
+              <div className="text-center">
+                <Gem className="h-16 w-16 text-white mb-4 mx-auto" />
+                <h3 className="text-white font-playfair text-2xl">Crystal Therapy</h3>
+                <p className="text-purple-100 max-w-xs mx-auto mt-2">Bringing the healing beauty of amethyst crystals to children's hospital rooms</p>
+              </div>
+            </div>
           </motion.div>
         </motion.div>
         
