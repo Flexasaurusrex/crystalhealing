@@ -14,6 +14,10 @@ function Router() {
     <Switch>
       <Route path="/" component={HomePage} />
       <Route path="/admin" component={AdminPage} />
+      <Route path="/admin/crystal-whispers" component={() => import('./pages/admin-whispers').then(module => {
+        const AdminWhispers = module.default;
+        return <AdminWhispers />;
+      })} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Image, Upload, CheckCircle2, ImageIcon } from 'lucide-react';
 import { Separator } from "@/components/ui/separator";
+import { Link } from 'wouter';
 
 // Type definitions for section images
 interface SectionImageData {
@@ -468,23 +469,30 @@ export default function AdminPage() {
             
             <Separator className="my-6" />
             
-            {/* Crystal Whispers Section - Special handling */}
+            {/* Crystal Whispers Section - Link to dedicated page */}
             <div>
-              <h2 className="text-xl font-semibold mb-4">Crystal Whispers Section</h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-                Upload images for each crystal in the Crystal Whispers interactive section
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {crystalWhispersImages.map(crystal => (
-                  <ImageUploadCard 
-                    key={crystal.id}
-                    title={crystal.title} 
-                    description={crystal.description}
-                    sectionId={`crystalWhispers.${crystal.id}`}
-                    currentImage={sectionImages.crystalWhispers?.[crystal.id]}
-                  />
-                ))}
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-xl font-semibold">Crystal Whispers Section</h2>
+                <Link href="/admin/crystal-whispers">
+                  <Button variant="default">
+                    Manage Crystal Whispers Images
+                  </Button>
+                </Link>
               </div>
+              <Card className="p-6">
+                <div className="text-center">
+                  <h3 className="text-lg font-medium mb-2">Dedicated Management Interface</h3>
+                  <p className="text-gray-500 dark:text-gray-400 mb-4">
+                    We've created a dedicated section for managing the Crystal Whispers images to make
+                    it easier to upload and manage images for each crystal type.
+                  </p>
+                  <Link href="/admin/crystal-whispers">
+                    <Button size="lg" className="mt-2">
+                      Go to Crystal Whispers Admin
+                    </Button>
+                  </Link>
+                </div>
+              </Card>
             </div>
             
             <Separator className="my-6" />
