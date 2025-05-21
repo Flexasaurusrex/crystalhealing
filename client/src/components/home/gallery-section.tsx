@@ -24,11 +24,11 @@ function CrystalCard({ image, title, description, tag, tagColor, price, delay }:
       viewport={{ once: true }}
       transition={{ delay: delay * 0.1, duration: 0.5 }}
     >
-      <div className="aspect-video w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
+      <div className="w-full h-[280px] overflow-hidden bg-gray-100 dark:bg-gray-800">
         <InPlaceImageEditor
           currentImageUrl={crystalImage}
           altText={title}
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-contain"
           onImageUpdated={(newUrl) => setCrystalImage(newUrl)}
         />
       </div>
@@ -49,7 +49,7 @@ function CrystalCard({ image, title, description, tag, tagColor, price, delay }:
 export function GallerySection() {
   const crystals = [
     {
-      image: "/uploads/image-1747849745370-115514031.png",
+      image: "/uploads/image-1747850142811-50648891.png",
       title: "Amethyst Clusters",
       description: "These purple beauties are among our most popular donations, with their striking color and fascinating geometric crystal formations.",
       tag: "Most requested",
@@ -58,7 +58,7 @@ export function GallerySection() {
       delay: 1
     },
     {
-      image: "/uploads/image-1747849839811-417506369.png",
+      image: "/uploads/image-1747850443498-996657443.png",
       title: "Clear Quartz Points",
       description: "These crystal points catch and reflect light beautifully, creating rainbow prisms that delight children of all ages.",
       tag: "Great for all ages",
@@ -76,7 +76,7 @@ export function GallerySection() {
       delay: 3
     },
     {
-      image: "/uploads/image-1747850014807-838160829.png",
+      image: "/uploads/image-1747849839811-417506369.png",
       title: "Fluorite",
       description: "These multi-colored crystals feature bands of purple, green, and blue, making them particularly fascinating visual tools.",
       tag: "Color variety",
@@ -94,7 +94,7 @@ export function GallerySection() {
       delay: 5
     },
     {
-      image: "/uploads/image-1747850443498-996657443.png",
+      image: "/uploads/image-1747850360003-848574926.png",
       title: "Citrine",
       description: "With their sunny yellow color, these crystals bring a bright energy to any room and are especially popular in long-term care settings.",
       tag: "Brightens spaces",
