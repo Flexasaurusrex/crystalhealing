@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Gem, Menu, X } from "lucide-react";
@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [, navigate] = useLocation();
 
   // Handle scroll effect
   useEffect(() => {
@@ -55,36 +56,56 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a 
-              href="#mission" 
+            <button 
+              onClick={() => {
+                navigate('/#mission');
+                const element = document.getElementById('mission');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="font-montserrat text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-[hsl(var(--purple-500))] dark:hover:text-[hsl(var(--purple-500))] transition-colors"
             >
               Our Mission
-            </a>
-            <a 
-              href="#about" 
+            </button>
+            <button 
+              onClick={() => {
+                navigate('/#about');
+                const element = document.getElementById('about');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="font-montserrat text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-[hsl(var(--purple-500))] dark:hover:text-[hsl(var(--purple-500))] transition-colors"
             >
               About Us
-            </a>
-            <a 
-              href="#gallery" 
+            </button>
+            <button 
+              onClick={() => {
+                navigate('/#gallery');
+                const element = document.getElementById('gallery');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="font-montserrat text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-[hsl(var(--purple-500))] dark:hover:text-[hsl(var(--purple-500))] transition-colors"
             >
               Crystal Gallery
-            </a>
-            <a 
-              href="#impact" 
+            </button>
+            <button 
+              onClick={() => {
+                navigate('/#impact');
+                const element = document.getElementById('impact');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="font-montserrat text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-[hsl(var(--purple-500))] dark:hover:text-[hsl(var(--purple-500))] transition-colors"
             >
               Impact Stories
-            </a>
-            <a 
-              href="#donate" 
+            </button>
+            <button 
+              onClick={() => {
+                navigate('/#donate');
+                const element = document.getElementById('donate');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="font-montserrat text-sm font-medium px-5 py-2 bg-[hsl(var(--purple-500))] text-white rounded-full hover:bg-[hsl(var(--purple-800))] transition-colors"
             >
               Donate
-            </a>
+            </button>
             <ThemeToggle />
           </nav>
 
@@ -118,41 +139,61 @@ export function Navbar() {
             className="md:hidden bg-white dark:bg-gray-900 shadow-md pb-4"
           >
             <div className="container mx-auto px-4 flex flex-col space-y-3">
-              <a
-                href="#mission"
-                className="font-montserrat text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-[hsl(var(--purple-500))] dark:hover:text-[hsl(var(--purple-500))] py-2 transition-colors"
-                onClick={() => setIsOpen(false)}
+              <button
+                className="font-montserrat text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-[hsl(var(--purple-500))] dark:hover:text-[hsl(var(--purple-500))] py-2 transition-colors w-full text-left"
+                onClick={() => {
+                  setIsOpen(false);
+                  navigate('/#mission');
+                  const element = document.getElementById('mission');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 Our Mission
-              </a>
-              <a
-                href="#about"
-                className="font-montserrat text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-[hsl(var(--purple-500))] dark:hover:text-[hsl(var(--purple-500))] py-2 transition-colors"
-                onClick={() => setIsOpen(false)}
+              </button>
+              <button
+                className="font-montserrat text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-[hsl(var(--purple-500))] dark:hover:text-[hsl(var(--purple-500))] py-2 transition-colors w-full text-left"
+                onClick={() => {
+                  setIsOpen(false);
+                  navigate('/#about');
+                  const element = document.getElementById('about');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 About Us
-              </a>
-              <a
-                href="#gallery"
-                className="font-montserrat text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-[hsl(var(--purple-500))] dark:hover:text-[hsl(var(--purple-500))] py-2 transition-colors"
-                onClick={() => setIsOpen(false)}
+              </button>
+              <button
+                className="font-montserrat text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-[hsl(var(--purple-500))] dark:hover:text-[hsl(var(--purple-500))] py-2 transition-colors w-full text-left"
+                onClick={() => {
+                  setIsOpen(false);
+                  navigate('/#gallery');
+                  const element = document.getElementById('gallery');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 Crystal Gallery
-              </a>
-              <a
-                href="#impact"
-                className="font-montserrat text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-[hsl(var(--purple-500))] dark:hover:text-[hsl(var(--purple-500))] py-2 transition-colors"
-                onClick={() => setIsOpen(false)}
+              </button>
+              <button
+                className="font-montserrat text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-[hsl(var(--purple-500))] dark:hover:text-[hsl(var(--purple-500))] py-2 transition-colors w-full text-left"
+                onClick={() => {
+                  setIsOpen(false);
+                  navigate('/#impact');
+                  const element = document.getElementById('impact');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 Impact Stories
-              </a>
-              <a
-                href="#donate"
-                className="font-montserrat text-sm font-medium px-5 py-2 bg-[hsl(var(--purple-500))] text-white rounded-full inline-block text-center hover:bg-[hsl(var(--purple-800))] transition-colors"
-                onClick={() => setIsOpen(false)}
+              </button>
+              <button
+                className="font-montserrat text-sm font-medium px-5 py-2 bg-[hsl(var(--purple-500))] text-white rounded-full inline-block text-center hover:bg-[hsl(var(--purple-800))] transition-colors w-full"
+                onClick={() => {
+                  setIsOpen(false);
+                  navigate('/#donate');
+                  const element = document.getElementById('donate');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 Donate
-              </a>
+              </button>
             </div>
           </motion.div>
         )}
