@@ -130,8 +130,8 @@ export function MissionSection() {
             </div>
             <div className="lg:w-1/2 order-1 lg:order-2">
               <img 
-                src="https://images.unsplash.com/photo-1536148935331-408321065b18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=800" 
-                alt="Child exploring a crystal in a healing environment" 
+                src="https://images.unsplash.com/photo-1503455637927-730bce8583c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&h=800" 
+                alt="Crystal healing display in a calming environment" 
                 className="w-full h-full object-cover" 
               />
             </div>
