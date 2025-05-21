@@ -8,13 +8,17 @@ interface InPlaceImageEditorProps {
   altText: string;
   className?: string;
   onImageUpdated?: (newUrl: string) => void;
+  sectionId?: string;
+  subsectionId?: string;
 }
 
 export function InPlaceImageEditor({
   currentImageUrl,
   altText,
   className = "",
-  onImageUpdated
+  onImageUpdated,
+  sectionId,
+  subsectionId
 }: InPlaceImageEditorProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
@@ -38,35 +42,75 @@ export function InPlaceImageEditor({
     try {
       const formData = new FormData();
       formData.append('image', file);
-
-      const response = await fetch('/api/simple-upload', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error('Upload failed');
-      }
-
-      const data = await response.json();
       
-      if (data.url) {
-        if (onImageUpdated) {
-          onImageUpdated(data.url);
+      // If we have section info, use the admin upload endpoint to save section data
+      if (sectionId) {
+        // Add section information to the form data
+        formData.append('section', sectionId);
+        if (subsectionId) {
+          formData.append('subsection', subsectionId);
         }
         
-        setUploadSuccess(true);
-        
-        toast({
-          title: "Image updated",
-          description: "The image has been successfully updated.",
+        const response = await fetch('/api/upload-image', {
+          method: 'POST',
+          body: formData,
         });
+
+        if (!response.ok) {
+          throw new Error('Upload failed');
+        }
+
+        const data = await response.json();
         
-        // Auto hide the editor after a brief success display
-        setTimeout(() => {
-          setIsEditing(false);
-          setUploadSuccess(false);
-        }, 2000);
+        if (data.imageUrl) {
+          if (onImageUpdated) {
+            onImageUpdated(data.imageUrl);
+          }
+          
+          setUploadSuccess(true);
+          
+          toast({
+            title: "Image updated",
+            description: `The image for ${sectionId} has been successfully updated and saved.`,
+          });
+          
+          // Auto hide the editor after a brief success display
+          setTimeout(() => {
+            setIsEditing(false);
+            setUploadSuccess(false);
+          }, 2000);
+        }
+      } else {
+        // Use the simple upload endpoint if no section is specified
+        const response = await fetch('/api/simple-upload', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error('Upload failed');
+        }
+
+        const data = await response.json();
+        
+        if (data.url) {
+          if (onImageUpdated) {
+            onImageUpdated(data.url);
+          }
+          
+          setUploadSuccess(true);
+          
+          toast({
+            title: "Image updated",
+            description: "The image has been successfully updated.",
+          });
+          
+          // Auto hide the editor after a brief success display
+          setTimeout(() => {
+            setIsEditing(false);
+            setUploadSuccess(false);
+          }, 2000);
+        }
       }
     } catch (error) {
       console.error('Error uploading image:', error);

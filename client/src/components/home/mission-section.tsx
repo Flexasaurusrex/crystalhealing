@@ -1,10 +1,22 @@
 import { motion } from "framer-motion";
 import { Sparkles, Baby, Heart, CheckCircle2 } from "lucide-react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { InPlaceImageEditor } from "@/components/admin/InPlaceImageEditor";
 
 export function MissionSection() {
-  const [missionImage, setMissionImage] = useState("https://images.pexels.com/photos/1573236/pexels-photo-1573236.jpeg?auto=compress&cs=tinysrgb&w=1000&h=800&dpr=1");
+  const [missionImage, setMissionImage] = useState<string>("https://images.pexels.com/photos/1573236/pexels-photo-1573236.jpeg?auto=compress&cs=tinysrgb&w=1000&h=800&dpr=1");
+
+  // Load saved mission image on component mount
+  useEffect(() => {
+    fetch('/api/section-images')
+      .then(res => res.json())
+      .then(data => {
+        if (data.mission && data.mission !== "") {
+          setMissionImage(data.mission);
+        }
+      })
+      .catch(err => console.error("Failed to load mission image:", err));
+  }, []);
   return (
     <section id="mission" className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
