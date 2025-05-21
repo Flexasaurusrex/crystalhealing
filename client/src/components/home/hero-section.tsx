@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Hospital, Heart, Gem } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { InPlaceImageEditor } from "@/components/admin/InPlaceImageEditor";
 
 export function HeroSection() {
+  const [heroImage, setHeroImage] = useState("https://i.ibb.co/6RcVgNhK/Chat-GPT-Image-May-21-2025-12-32-16-AM.png");
   return (
     <section className="pt-24 sm:pt-32 pb-16 sm:pb-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-purple-100 to-pink-50 dark:from-purple-950/30 dark:to-pink-950/20 opacity-70"></div>
@@ -51,10 +54,11 @@ export function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
           >
-            <img 
-              src="https://i.ibb.co/6RcVgNhK/Chat-GPT-Image-May-21-2025-12-32-16-AM.png"
-              alt="Amethyst crystal display by hospital bedside" 
-              className="rounded-2xl shadow-xl w-full h-auto object-cover transform md:translate-x-8" 
+            <InPlaceImageEditor
+              currentImageUrl={heroImage}
+              altText="Amethyst crystal display by hospital bedside"
+              className="rounded-2xl shadow-xl w-full h-auto object-cover transform md:translate-x-8"
+              onImageUpdated={(newUrl) => setHeroImage(newUrl)}
             />
           </motion.div>
         </motion.div>

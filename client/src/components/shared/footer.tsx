@@ -6,6 +6,27 @@ import { toast } from "@/hooks/use-toast";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const [isAdmin, setIsAdmin] = useState(false);
+  
+  // Check for admin status when component mounts
+  useEffect(() => {
+    const adminStatus = localStorage.getItem('isAdmin') === 'true';
+    setIsAdmin(adminStatus);
+  }, []);
+  
+  // Handle logout
+  const handleLogout = () => {
+    localStorage.removeItem('isAdmin');
+    setIsAdmin(false);
+    
+    toast({
+      title: "Logged out",
+      description: "Admin mode deactivated.",
+    });
+    
+    // Reload the page to apply changes
+    window.location.reload();
+  };
 
   return (
     <footer className="bg-[hsl(var(--purple-900))] text-white pt-16 pb-8">
@@ -115,9 +136,22 @@ export function Footer() {
               <a href="#" className="text-purple-300 text-sm hover:text-white transition-colors">
                 Accessibility
               </a>
-              <a href="/admin" className="text-purple-300/50 text-xs hover:text-white/70 transition-colors ml-4">
-                Admin
-              </a>
+              
+              {isAdmin ? (
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="text-red-300 hover:text-white hover:bg-red-800/20 ml-4 h-8 px-3"
+                  onClick={handleLogout}
+                >
+                  <LogOut className="h-3.5 w-3.5 mr-1" />
+                  Admin Logout
+                </Button>
+              ) : (
+                <a href="/admin" className="text-purple-300/50 text-xs hover:text-white/70 transition-colors ml-4">
+                  Admin
+                </a>
+              )}
             </div>
           </div>
         </div>
