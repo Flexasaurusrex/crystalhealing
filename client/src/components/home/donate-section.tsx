@@ -207,7 +207,7 @@ export function DonateSection() {
             
             {/* Cryptocurrency Donation Option */}
             <motion.div 
-              className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm cursor-pointer hover:shadow-md transition-shadow duration-300 transform hover:-translate-y-1"
+              className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 transform hover:-translate-y-1"
               whileHover={{ y: -4 }}
             >
               <div className="flex justify-between items-center mb-4">
@@ -230,6 +230,7 @@ export function DonateSection() {
                   )}
                 </button>
               </div>
+              
               <p className="text-gray-600 dark:text-gray-300 mb-4">
                 We welcome cryptocurrency donations. You can contribute using Bitcoin (BTC), Ethereum (ETH), or Solana (SOL).
               </p>
