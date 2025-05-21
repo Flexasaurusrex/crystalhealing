@@ -52,8 +52,8 @@ export function HeroSection() {
             transition={{ delay: 0.3, duration: 0.7 }}
           >
             <img 
-              src="https://images.pexels.com/photos/4040539/pexels-photo-4040539.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-              alt="Amethyst crystal display healing properties" 
+              src="https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+              alt="Amethyst crystal display in hospital setting" 
               className="rounded-2xl shadow-xl w-full h-auto object-cover transform md:translate-x-8" 
             />
           </motion.div>
