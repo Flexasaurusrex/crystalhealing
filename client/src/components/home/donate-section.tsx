@@ -20,6 +20,7 @@ import {
 
 export function DonateSection() {
   const [selectedAmount, setSelectedAmount] = useState<string | null>(null);
+  const [customAmount, setCustomAmount] = useState<string>("");
   const [showDonationGuidelines, setShowDonationGuidelines] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
@@ -118,7 +119,7 @@ export function DonateSection() {
                   and cover program administration costs.
                 </p>
                 
-                <div className="grid grid-cols-3 gap-3 mb-6">
+                <div className="grid grid-cols-3 gap-3 mb-3">
                   <div 
                     className={`${
                       selectedAmount === "50" 
@@ -151,12 +152,50 @@ export function DonateSection() {
                   </div>
                 </div>
                 
+                <div className="mb-6">
+                  <div className="relative">
+                    <span className="absolute inset-y-0 left-3 flex items-center text-gray-500 dark:text-gray-400 pointer-events-none">
+                      $
+                    </span>
+                    <input 
+                      type="number" 
+                      min="1"
+                      placeholder="Custom amount"
+                      className={`w-full pl-8 pr-4 py-3 rounded-lg border ${
+                        selectedAmount === "custom" 
+                          ? "border-[hsl(var(--purple-500))] bg-purple-50 dark:bg-purple-900/30" 
+                          : "border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800"
+                      } focus:outline-none focus:ring-2 focus:ring-[hsl(var(--purple-500))]`}
+                      onChange={(e) => {
+                        if (e.target.value) {
+                          setSelectedAmount("custom");
+                          setCustomAmount(e.target.value);
+                        } else {
+                          setSelectedAmount(null);
+                          setCustomAmount("");
+                        }
+                      }}
+                      value={selectedAmount === "custom" ? customAmount : ""}
+                      onClick={() => {
+                        if (customAmount) {
+                          setSelectedAmount("custom");
+                        }
+                      }}
+                    />
+                  </div>
+                </div>
+                
                 <Button 
                   className="w-full bg-[hsl(var(--purple-500))] hover:bg-[hsl(var(--purple-800))] font-montserrat text-white"
                   asChild
                 >
                   <a href="https://venmo.com/Ludwig-VonMesser" target="_blank" rel="noopener noreferrer">
-                    {selectedAmount ? `Donate $${selectedAmount} Now` : 'Donate Now'}
+                    {selectedAmount === "custom" 
+                      ? `Donate $${customAmount} Now`
+                      : selectedAmount 
+                        ? `Donate $${selectedAmount} Now` 
+                        : 'Donate Now'
+                    }
                   </a>
                 </Button>
                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-3 text-center">
