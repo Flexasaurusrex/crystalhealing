@@ -20,7 +20,7 @@ export function MissionSection() {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <motion.div 
             className="bg-[hsl(var(--stone-50))] dark:bg-gray-800 rounded-xl p-6 shadow-sm gradient-border pl-10"
             initial={{ opacity: 0, y: 20 }}
@@ -69,6 +69,24 @@ export function MissionSection() {
             <p className="text-gray-600 dark:text-gray-300">
               We build a bridge between the crystal community and pediatric healthcare facilities, creating a 
               network of ongoing support for children in need.
+            </p>
+          </motion.div>
+          
+          <motion.div 
+            className="bg-[hsl(var(--stone-50))] dark:bg-gray-800 rounded-xl p-6 shadow-sm gradient-border pl-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+          >
+            <div className="w-16 h-16 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 className="font-playfair font-semibold text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-3">Sustainable Practices</h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              We are committed to ethical sourcing of crystals and environmentally responsible practices in all aspects of our program development.
             </p>
           </motion.div>
         </div>
