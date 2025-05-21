@@ -149,8 +149,10 @@ export function DonateSection() {
             
             <div className="bg-white dark:bg-gray-900 rounded-xl p-5 shadow-sm border border-green-100 dark:border-green-900">
               <div className="flex items-center space-x-3 text-[hsl(var(--green-500))]">
-                <Check className="h-5 w-5" />
-                <p className="text-sm font-medium">All donations are tax-deductible (501c3 organization)</p>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p className="text-sm font-medium">Currently applying for 501(c)(3) non-profit status</p>
               </div>
             </div>
           </div>
@@ -159,68 +161,69 @@ export function DonateSection() {
             {/* Contact Form Section */}
             <div className="bg-[hsl(var(--purple-800))] dark:bg-purple-900 p-8 md:p-12 h-full">
               <h3 className="font-playfair font-bold text-2xl text-white mb-6">Contact Us</h3>
-              <p className="text-purple-100 mb-8">
-                Have questions about our program or how you can get involved? 
+              <p className="text-purple-100 mb-6">
+                Have questions about our initiative or how you can get involved? 
                 We'd love to hear from you.
               </p>
               
+              <div className="flex items-center space-x-2 mb-8 text-purple-100">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <a href="mailto:flex@capyapp.xyz" className="text-white hover:text-pink-200 transition-colors">flex@capyapp.xyz</a>
+              </div>
+              
               <form className="space-y-5" onSubmit={handleSubmit}>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="w-full sm:w-1/2">
+                    <Input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-lg bg-purple-700 text-white placeholder-purple-300 border border-purple-600 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--pink-400))]"
+                      placeholder="Your Name"
+                      required
+                    />
+                  </div>
+                  
+                  <div className="w-full sm:w-1/2">
+                    <Input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-lg bg-purple-700 text-white placeholder-purple-300 border border-purple-600 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--pink-400))]"
+                      placeholder="Your Email"
+                      required
+                    />
+                  </div>
+                </div>
+                
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-purple-100 mb-1">Your Name</label>
                   <Input
                     type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg bg-purple-700 text-white placeholder-purple-300 border border-purple-600 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--pink-400))]"
-                    placeholder="John Doe"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-purple-100 mb-1">Email Address</label>
-                  <Input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg bg-purple-700 text-white placeholder-purple-300 border border-purple-600 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--pink-400))]"
-                    placeholder="john@example.com"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-purple-100 mb-1">Subject</label>
-                  <select
                     id="subject"
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg bg-purple-700 text-white border border-purple-600 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--pink-400))]"
+                    className="w-full px-4 py-3 rounded-lg bg-purple-700 text-white placeholder-purple-300 border border-purple-600 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--pink-400))]"
+                    placeholder="Subject"
                     required
-                  >
-                    <option value="" disabled>Select a subject</option>
-                    <option value="Crystal Donation">Crystal Donation</option>
-                    <option value="Hospital Partnership">Hospital Partnership</option>
-                    <option value="Volunteer Opportunities">Volunteer Opportunities</option>
-                    <option value="Other Inquiry">Other Inquiry</option>
-                  </select>
+                  />
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-purple-100 mb-1">Your Message</label>
                   <Textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    rows={4}
+                    rows={3}
                     className="w-full px-4 py-3 rounded-lg bg-purple-700 text-white placeholder-purple-300 border border-purple-600 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--pink-400))]"
-                    placeholder="How can we help you?"
+                    placeholder="Your Message"
                     required
                   />
                 </div>
