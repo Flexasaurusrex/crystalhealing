@@ -220,29 +220,31 @@ export function CrystalEducationSection() {
                         />
                       )}
                       
-                      {/* Sparkles overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-50" />
-                      {[...Array(8)].map((_, i) => (
-                        <motion.div
-                          key={`sparkle-${i}`}
-                          className="absolute rounded-full bg-white"
-                          style={{
-                            width: 3 + Math.random() * 4,
-                            height: 3 + Math.random() * 4,
-                            top: `${10 + Math.random() * 80}%`,
-                            left: `${10 + Math.random() * 80}%`,
-                          }}
-                          animate={{
-                            opacity: [0, 0.8, 0],
-                            scale: [0.8, 1.2, 0.8],
-                          }}
-                          transition={{
-                            repeat: Infinity,
-                            duration: 1.5 + Math.random() * 2,
-                            delay: Math.random() * 2,
-                          }}
-                        />
-                      ))}
+                      {/* Sparkles overlay - moved into a separate container so they don't block editing */}
+                      <div className="absolute inset-0 z-10 pointer-events-none">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-50" />
+                        {[...Array(8)].map((_, i) => (
+                          <motion.div
+                            key={`sparkle-${i}`}
+                            className="absolute rounded-full bg-white"
+                            style={{
+                              width: 3 + Math.random() * 4,
+                              height: 3 + Math.random() * 4,
+                              top: `${10 + Math.random() * 80}%`,
+                              left: `${10 + Math.random() * 80}%`,
+                            }}
+                            animate={{
+                              opacity: [0, 0.8, 0],
+                              scale: [0.8, 1.2, 0.8],
+                            }}
+                            transition={{
+                              repeat: Infinity,
+                              duration: 1.5 + Math.random() * 2,
+                              delay: Math.random() * 2,
+                            }}
+                          />
+                        ))}
+                      </div>
                     </div>
                   </div>
                   <div className="w-full sm:w-1/2">
