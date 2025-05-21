@@ -14,8 +14,8 @@ export function Footer() {
               <h3 className="font-playfair font-bold text-xl text-white">Crystals for Kids</h3>
             </div>
             <p className="text-purple-200 mb-6">
-              A 501(c)(3) nonprofit organization dedicated to bringing the healing beauty of 
-              crystals to children in hospitals across the country.
+              A startup initiative dedicated to bringing the healing beauty of 
+              crystals to children in hospitals.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-purple-300 hover:text-white transition-colors" aria-label="Facebook">
@@ -65,31 +65,21 @@ export function Footer() {
           </div>
           
           <div>
-            <h4 className="font-montserrat font-medium text-white mb-6">Resources</h4>
+            <h4 className="font-montserrat font-medium text-white mb-6">Future Resources</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-purple-200 hover:text-white transition-colors">
-                  Crystal Care Guide
+                <a href="#about" className="text-purple-200 hover:text-white transition-colors">
+                  Our Vision
                 </a>
               </li>
               <li>
-                <a href="#" className="text-purple-200 hover:text-white transition-colors">
-                  Partner Hospitals
+                <a href="#gallery" className="text-purple-200 hover:text-white transition-colors">
+                  Crystal Gallery
                 </a>
               </li>
               <li>
-                <a href="#" className="text-purple-200 hover:text-white transition-colors">
-                  Newsletter Archive
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-purple-200 hover:text-white transition-colors">
-                  Annual Reports
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-purple-200 hover:text-white transition-colors">
-                  Press Resources
+                <a href="#donate" className="text-purple-200 hover:text-white transition-colors">
+                  Support Our Mission
                 </a>
               </li>
             </ul>
@@ -97,18 +87,11 @@ export function Footer() {
           
           <div>
             <h4 className="font-montserrat font-medium text-white mb-6">Contact Us</h4>
+            <p className="text-purple-200 mb-4">Have questions or want to get involved? Reach out to us!</p>
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 mt-1 text-[hsl(var(--pink-400))]" />
-                <span className="text-purple-200">123 Healing Way, Memphis, TN 38105</span>
-              </li>
-              <li className="flex items-start space-x-3">
-                <Phone className="h-5 w-5 mt-1 text-[hsl(var(--pink-400))]" />
-                <span className="text-purple-200">(555) 123-4567</span>
-              </li>
-              <li className="flex items-start space-x-3">
                 <Mail className="h-5 w-5 mt-1 text-[hsl(var(--pink-400))]" />
-                <span className="text-purple-200">info@crystalsforkids.org</span>
+                <a href="mailto:flex@capyapp.xyz" className="text-purple-200 hover:text-white transition-colors">flex@capyapp.xyz</a>
               </li>
             </ul>
           </div>
