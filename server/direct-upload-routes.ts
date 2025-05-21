@@ -50,19 +50,38 @@ const upload = multer({
   }
 });
 
-// Simple file upload endpoint
-router.post('/simple-upload', upload.single('image'), (req, res) => {
+// Simple file upload endpoint with section tracking
+router.post('/simple-upload', upload.single('image'), async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ error: 'No file uploaded' });
     }
     
-    // Just return the URL to the uploaded file
+    // Get the file URL
     const fileUrl = `/uploads/${req.file.filename}`;
+    
+    // Check if we have section/subsection info - if so, save to section images
+    const sectionId = req.body.sectionId;
+    const subsectionId = req.body.subsectionId;
+    
+    if (sectionId) {
+      try {
+        // Import the section image update function from our dedicated module
+        const { updateSectionImage } = require('./image-storage');
+        
+        // Update the section image data
+        await updateSectionImage(sectionId, subsectionId || null, fileUrl);
+        console.log(`Updated image for ${sectionId}${subsectionId ? '/' + subsectionId : ''}`);
+      } catch (err) {
+        console.error('Error updating section image data:', err);
+        // Continue anyway, so at least the upload works
+      }
+    }
     
     return res.status(200).json({ 
       url: fileUrl,
-      success: true 
+      success: true,
+      sectionUpdated: !!sectionId
     });
   } catch (error) {
     console.error('Upload error:', error);

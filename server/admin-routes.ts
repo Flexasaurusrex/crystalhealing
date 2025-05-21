@@ -5,21 +5,10 @@ import fs from 'fs';
 import { promisify } from 'util';
 import { storage } from './storage';
 
-const mkdirAsync = promisify(fs.mkdir);
-const existsAsync = promisify(fs.exists);
-const writeFileAsync = promisify(fs.writeFile);
-const readFileAsync = promisify(fs.readFile);
+// Import our dedicated image storage module
+import { createUploadDirIfNeeded, getSectionImages, updateSectionImage } from './image-storage';
 
 const router = Router();
-
-// Make sure the upload directory exists
-const createUploadDirIfNeeded = async () => {
-  const uploadDir = path.join(process.cwd(), 'public', 'uploads');
-  if (!await existsAsync(uploadDir)) {
-    await mkdirAsync(uploadDir, { recursive: true });
-  }
-  return uploadDir;
-};
 
 // Configure multer for file uploads
 const storageConfig = multer.diskStorage({
@@ -121,6 +110,7 @@ const updateSectionImage = async (section: string, subsection: string | null, im
   }
   
   await writeFileAsync(SECTION_IMAGES_FILE, JSON.stringify(sectionImages, null, 2));
+  console.log(`Successfully saved image for ${section}${subsection ? '/' + subsection : ''} to ${imageUrl}`);
   return sectionImages;
 };
 
