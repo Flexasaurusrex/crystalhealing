@@ -3,8 +3,8 @@ import { useState } from "react";
 import { InPlaceImageEditor } from "@/components/admin/InPlaceImageEditor";
 
 export function CrystalKitSection() {
-  // Use the correct path to the uploaded image in our server's upload directory
-  const [kitImage, setKitImage] = useState("/uploads/crystal-kit.png");
+  // Use the updated dark background image that matches our site theme
+  const [kitImage, setKitImage] = useState("/uploads/crystal-kit-dark.png");
   
   return (
     <section className="py-20 bg-[hsl(var(--stone-50))] dark:bg-gray-800">
