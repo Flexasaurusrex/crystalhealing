@@ -76,7 +76,7 @@ function InteractiveCrystal() {
         whileHover={{ scale: 1.05 }}
         initial={{ scale: 1 }}
       >
-        {/* Exact diamond logo SVG animation */}
+        {/* Exact diamond logo SVG animation - just the diamond without all the text */}
         <div className="relative w-full flex flex-col items-center justify-center">
           {/* Diamond SVG that matches your logo exactly */}
           <svg 
@@ -151,40 +151,6 @@ function InteractiveCrystal() {
               </filter>
             </defs>
           </svg>
-
-          {/* Text underneath */}
-          <div className="mt-1 text-center">
-            <div className="font-serif text-sm text-purple-200 tracking-wide">HEALING THROUGH VISUAL THERAPY</div>
-          </div>
-          
-          {/* Hover instruction */}
-          <div className="text-purple-200 text-sm font-medium mt-2">
-            Click for magic!
-          </div>
-          
-          {/* Decorative quote to fill space */}
-          <div className="text-center mt-10 mb-8 max-w-xl mx-auto">
-            <div className="text-purple-200/80 italic text-lg mb-3">
-              "The beauty of crystals reminds us of the hidden magic in the world around us."
-            </div>
-            <div className="mt-4 mb-12 flex flex-col items-center justify-center">
-              <div className="flex space-x-8 mb-6">
-                {/* Three mini crystal icons */}
-                <svg width="20" height="20" viewBox="0 0 50 50" fill="#a78bda" opacity="0.6">
-                  <path d="M25 5L45 25L25 45L5 25L25 5Z" />
-                </svg>
-                <svg width="20" height="20" viewBox="0 0 50 50" fill="#a78bda" opacity="0.6">
-                  <path d="M25 5L45 25L25 45L5 25L25 5Z" />
-                </svg>
-                <svg width="20" height="20" viewBox="0 0 50 50" fill="#a78bda" opacity="0.6">
-                  <path d="M25 5L45 25L25 45L5 25L25 5Z" />
-                </svg>
-              </div>
-              <div className="text-purple-200/60 text-sm">
-                Support our mission to bring joy to children's healing journey
-              </div>
-            </div>
-          </div>
         </div>
         
         {/* Sparkles around crystal when clicked */}
@@ -599,10 +565,37 @@ export function DonateSection() {
                 </Button>
               </form>
               
-              {/* Clear separator between form and crystal */}
-              <div className="mt-12 border-t border-purple-400/30 pt-8">
-                <h4 className="text-center text-white text-xl font-medium mb-4">Our Symbol of Hope</h4>
+              {/* Just the crystal with no text overlap */}
+              <div className="mt-12 border-t border-purple-400/30 pt-8 flex flex-col items-center">
                 <InteractiveCrystal />
+                
+                {/* All text below the diamond */}
+                <div className="mt-4">
+                  <div className="font-serif text-sm text-purple-200 tracking-wide">HEALING THROUGH VISUAL THERAPY</div>
+                  <div className="text-purple-200 text-sm font-medium mt-2">Click for magic!</div>
+                  
+                  {/* Decorative quote with proper spacing */}
+                  <div className="text-center mt-8 mb-6 max-w-xl mx-auto">
+                    <div className="text-purple-200/80 italic text-lg">
+                      "The beauty of crystals reminds us of the hidden magic in the world around us."
+                    </div>
+                    <div className="mt-6 flex justify-center space-x-8">
+                      {/* Three mini crystal icons */}
+                      <svg width="20" height="20" viewBox="0 0 50 50" fill="#a78bda" opacity="0.6">
+                        <path d="M25 5L45 25L25 45L5 25L25 5Z" />
+                      </svg>
+                      <svg width="20" height="20" viewBox="0 0 50 50" fill="#a78bda" opacity="0.6">
+                        <path d="M25 5L45 25L25 45L5 25L25 5Z" />
+                      </svg>
+                      <svg width="20" height="20" viewBox="0 0 50 50" fill="#a78bda" opacity="0.6">
+                        <path d="M25 5L45 25L25 45L5 25L25 5Z" />
+                      </svg>
+                    </div>
+                    <div className="text-purple-200/60 text-sm mt-6">
+                      Support our mission to bring joy to children's healing journey
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
