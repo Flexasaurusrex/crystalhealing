@@ -44,8 +44,17 @@ const upload = multer({
 // Route to get all section images
 router.get('/section-images', async (_req: Request, res: Response) => {
   try {
+    // Add no-cache headers to prevent browser caching
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    
     const sectionImages = await getSectionImages();
-    return res.json(sectionImages);
+    // Add timestamp to force new data
+    return res.json({
+      ...sectionImages,
+      _timestamp: Date.now()
+    });
   } catch (error) {
     console.error('Error getting section images:', error);
     return res.status(500).json({ error: 'Failed to get section images' });
