@@ -4,19 +4,10 @@ import React, { useState, useEffect } from "react";
 import { InPlaceImageEditor } from "@/components/admin/InPlaceImageEditor";
 
 export function MissionSection() {
-  const [missionImage, setMissionImage] = useState<string>("https://images.pexels.com/photos/1573236/pexels-photo-1573236.jpeg?auto=compress&cs=tinysrgb&w=1000&h=800&dpr=1");
+  // Use a fixed image path that won't change
+  const [missionImage, setMissionImage] = useState<string>("/uploads/image-1747853786296-804772004.png");
 
-  // Load saved mission image on component mount
-  useEffect(() => {
-    fetch('/api/section-images')
-      .then(res => res.json())
-      .then(data => {
-        if (data.mission && data.mission !== "") {
-          setMissionImage(data.mission);
-        }
-      })
-      .catch(err => console.error("Failed to load mission image:", err));
-  }, []);
+  // We're using a fixed image path to prevent load issues
   return (
     <section id="mission" className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
