@@ -14,7 +14,7 @@ const crystalProperties = [
     description: "Amethyst crystals are like little purple healers. They help bring peaceful feelings when you look at them.",
     funFact: "Ancient people believed amethyst could protect them from bad dreams!",
     promptDetails: "A purple amethyst crystal with natural facets and points. The crystal should have a deep violet color with translucent quality that allows light to pass through. Show the natural hexagonal crystal structure with pyramid-shaped terminations.",
-    imageSrc: "https://images.pexels.com/photos/1573469/pexels-photo-1573469.jpeg?auto=compress&cs=tinysrgb&w=800&h=600"
+    imageSrc: "https://images.pexels.com/photos/5368743/pexels-photo-5368743.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&dpr=1"
   },
   {
     id: "love",
@@ -25,7 +25,7 @@ const crystalProperties = [
     description: "Rose quartz is a gentle pink crystal that reminds us to be kind to ourselves and others.",
     funFact: "Rose quartz is sometimes called the 'love stone' because of its pretty pink color!",
     promptDetails: "A rose quartz crystal specimen with a soft pink color. The crystal should have a gentle, opaque or translucent quality with a subtle, comforting glow. The surface should have a smooth, polished appearance typical of tumbled rose quartz.",
-    imageSrc: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=800&h=600"
+    imageSrc: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&dpr=1"
   },
   {
     id: "clarity",
@@ -36,7 +36,7 @@ const crystalProperties = [
     description: "Clear quartz is like a bright light for your thoughts, helping you think happy, clear thoughts.",
     funFact: "Clear quartz can create rainbows when sunlight shines through it!",
     promptDetails: "A clear quartz crystal point with excellent clarity. The crystal should be transparent and prismatic, showing its natural hexagonal structure with a pointed termination. It should have a glass-like appearance with internal refraction creating small rainbow effects where light hits it.",
-    imageSrc: "https://images.pexels.com/photos/1130304/pexels-photo-1130304.jpeg?auto=compress&cs=tinysrgb&w=800&h=600"
+    imageSrc: "https://images.pexels.com/photos/11075457/pexels-photo-11075457.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&dpr=1"
   },
   {
     id: "energy",

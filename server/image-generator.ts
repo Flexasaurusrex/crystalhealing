@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+import axios from 'axios';
 import path from 'path';
 import fs from 'fs';
 import { promisify } from 'util';
@@ -12,12 +12,10 @@ if (!process.env.TOGETHER_API_KEY) {
   console.error("TOGETHER_API_KEY environment variable is not set");
 }
 
-const TOGETHER_API_URL = "https://api.together.xyz/v1/completions";
-
 /**
  * Generate an image using Together.ai
  * @param prompt The text prompt for image generation
- * @param filename The filename to save the image as
+ * @param name The name of the crystal
  */
 export async function generateCrystalImage(prompt: string, name: string): Promise<string> {
   try {
@@ -28,40 +26,37 @@ export async function generateCrystalImage(prompt: string, name: string): Promis
     }
 
     // Define an enhanced prompt for better quality images
-    const enhancedPrompt = `Create a high-quality, photorealistic image of a ${name} crystal. The crystal should be placed on a soft, neutral background that highlights its natural beauty. Ensure the crystal is well-lit to showcase its translucent qualities and natural colors. The crystal should appear three-dimensional, capturing its facets and natural formation. Style: photorealistic, natural light, studio photography. Details: ${prompt}`;
+    const enhancedPrompt = `High quality professional photograph of a ${name} crystal, detailed crystal structure, studio lighting, on a black background, dramatic lighting, cinematic, product photography, crystal healing, mineral specimen, gemstone, 8k, hyperrealistic. Details: ${prompt}`;
     
-    console.log(`Generating image for ${name} crystal...`);
+    console.log(`Generating image for ${name} crystal using Together.ai...`);
 
     // Make the API request to Together.ai
-    const response = await fetch(TOGETHER_API_URL, {
-      method: "POST",
+    const response = await axios({
+      method: 'post',
+      url: 'https://api.together.xyz/v1/images/generations',
       headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${process.env.TOGETHER_API_KEY}`
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.TOGETHER_API_KEY}`
       },
-      body: JSON.stringify({
-        model: "stabilityai/stable-diffusion-xl-base-1.0",
+      data: {
+        model: 'togethercomputer/redshift-xl',
         prompt: enhancedPrompt,
-        max_tokens: 4096,
-        temperature: 0.7
-      })
+        width: 512,
+        height: 512,
+        n: 1
+      }
     });
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`Error from Together API: ${response.status} ${errorText}`);
-    }
-
-    const data = await response.json() as any;
-    
-    // Process the image data - base64 encoded
-    if (data.choices && data.choices[0] && data.choices[0].text) {
+    // Process the image data
+    if (response.data && response.data.data && response.data.data.length > 0) {
+      const imageBase64 = response.data.data[0].base64;
+      
       // Create a unique filename
       const filename = `${name.toLowerCase().replace(/\s+/g, '-')}-${Date.now()}.png`;
       const filePath = path.join(imagesDir, filename);
       
       // Write the base64 data to a file
-      const imageBuffer = Buffer.from(data.choices[0].text, 'base64');
+      const imageBuffer = Buffer.from(imageBase64, 'base64');
       await writeFileAsync(filePath, imageBuffer);
       
       // Return the URL path for the frontend to use
@@ -71,6 +66,9 @@ export async function generateCrystalImage(prompt: string, name: string): Promis
     }
   } catch (error) {
     console.error('Error generating crystal image:', error);
+    if (error.response) {
+      console.error('API Response:', error.response.data);
+    }
     return ''; // Return empty string if there's an error
   }
 }
