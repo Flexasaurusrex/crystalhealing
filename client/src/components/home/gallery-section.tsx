@@ -24,11 +24,11 @@ function CrystalCard({ image, title, description, tag, tagColor, price, delay }:
       viewport={{ once: true }}
       transition={{ delay: delay * 0.1, duration: 0.5 }}
     >
-      <div className="h-48 sm:h-56 md:h-64 overflow-hidden">
+      <div className="h-48 sm:h-56 md:h-64 overflow-hidden flex items-center justify-center bg-gray-100 dark:bg-gray-800">
         <InPlaceImageEditor
           currentImageUrl={crystalImage}
           altText={title}
-          className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-105"
+          className="w-full h-full object-contain transform transition-transform duration-500 hover:scale-105"
           onImageUpdated={(newUrl) => setCrystalImage(newUrl)}
         />
       </div>
