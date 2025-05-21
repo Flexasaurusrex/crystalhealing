@@ -41,7 +41,7 @@ export async function forceInitImagePersistence() {
   
   // Create section images tracking file
   try {
-    let sectionImages = {};
+    let sectionImages: Record<string, any> = {};
     
     // If file exists, read it
     if (await existsAsync(SECTION_IMAGES_FILE)) {
@@ -52,6 +52,10 @@ export async function forceInitImagePersistence() {
         console.error('Error reading section images file, will recreate:', err);
       }
     }
+    
+    // Ensure all sections are defined as objects
+    if (!sectionImages.gallery) sectionImages.gallery = {};
+    if (!sectionImages.crystalWhispers) sectionImages.crystalWhispers = {};
     
     // Make sure all sections are initialized with images if available
     const sections = {
@@ -64,7 +68,6 @@ export async function forceInitImagePersistence() {
     };
     
     // Handle gallery items
-    sectionImages.gallery = sectionImages.gallery || {};
     const gallery = {
       amethyst: sectionImages.gallery?.amethyst || '/uploads/image-1747850142811-50648891.png', 
       roseQuartz: sectionImages.gallery?.roseQuartz || '/uploads/image-1747849325361-238788183.jpeg',
@@ -75,7 +78,6 @@ export async function forceInitImagePersistence() {
     };
     
     // Handle crystal whispers items
-    sectionImages.crystalWhispers = sectionImages.crystalWhispers || {};
     const crystalWhispers = {
       main: sectionImages.crystalWhispers?.main || '',
       amethyst: sectionImages.crystalWhispers?.amethyst || '',

@@ -40,7 +40,18 @@ app.use((req, res, next) => {
   next();
 });
 
+// Import our image persistence system
+import { forceInitImagePersistence } from "./force-image-persistence";
+
 (async () => {
+  // Force initialize the image persistence system to ensure images stay saved
+  try {
+    await forceInitImagePersistence();
+    log("Successfully initialized image persistence system");
+  } catch (err) {
+    console.error("Failed to initialize image persistence:", err);
+  }
+  
   const server = await registerRoutes(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {

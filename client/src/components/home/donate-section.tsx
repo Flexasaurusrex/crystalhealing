@@ -77,36 +77,33 @@ function InteractiveCrystal() {
         whileHover={{ scale: 1.05 }}
         initial={{ scale: 1 }}
       >
-        {/* Crystal Cluster - Multiple facets */}
-        <div className="relative h-[180px] w-[180px]">
-          {/* Main crystal */}
-          <div className="absolute top-[10px] left-[40px] w-[100px] h-[160px] bg-gradient-to-br from-purple-400 to-purple-700 rounded-t-lg rounded-b-sm transform -rotate-[15deg] shadow-xl overflow-hidden z-10">
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/30 to-transparent"></div>
-            <div className="absolute top-1/3 left-1/4 w-1/2 h-1/3 bg-white/40 rounded-full blur-sm"></div>
+        {/* Diamond Crystal Logo Animation */}
+        <div className="relative h-[200px] w-[200px]">
+          {/* Diamond crystal shape - resembling your site logo */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] rotate-45 overflow-visible">
+            {/* Top facet */}
+            <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-br from-purple-300 to-purple-600 border-2 border-purple-200/30 shadow-lg">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent"></div>
+            </div>
+            
+            {/* Inner diamond shape for depth */}
+            <div className="absolute top-[15px] left-[15px] right-[15px] bottom-[15px] bg-gradient-to-br from-purple-400 to-purple-700 rotate-0 shadow-inner">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent"></div>
+            </div>
+            
+            {/* Central gem shine */}
+            <div className="absolute top-1/4 left-1/4 w-1/2 h-1/2 bg-white/20 rounded-full blur-[2px]"></div>
+            
+            {/* Facet reflections */}
+            <div className="absolute top-[20px] left-[20px] w-[30px] h-[2px] bg-white/70 rounded-full transform rotate-[45deg]"></div>
+            <div className="absolute top-[30px] right-[30px] w-[25px] h-[2px] bg-white/60 rounded-full transform rotate-[-30deg]"></div>
+            <div className="absolute bottom-[25px] left-[40px] w-[20px] h-[2px] bg-white/60 rounded-full transform rotate-[60deg]"></div>
           </div>
-          
-          {/* Secondary crystal */}
-          <div className="absolute top-[30px] left-[85px] w-[70px] h-[130px] bg-gradient-to-br from-purple-500 to-purple-800 rounded-t-lg rounded-b-sm transform rotate-[20deg] shadow-lg overflow-hidden z-20">
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/20 to-transparent"></div>
+
+          {/* Text "Crystals for Kids" under diamond - mimicking logo style */}
+          <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-center w-full">
+            <div className="font-serif text-xs text-purple-200 tracking-wide">HEALING THROUGH VISUAL THERAPY</div>
           </div>
-          
-          {/* Crystal point */}
-          <div className="absolute top-[10px] left-[25px] w-[60px] h-[100px] bg-gradient-to-br from-purple-300 to-purple-600 rounded-t-lg rounded-b-sm transform -rotate-[25deg] shadow-lg overflow-hidden z-0">
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/30 to-transparent"></div>
-          </div>
-          
-          {/* Small crystal accent */}
-          <div className="absolute top-[60px] left-[15px] w-[40px] h-[60px] bg-gradient-to-br from-purple-400 to-purple-700 rounded-t-lg rounded-b-sm transform rotate-[10deg] shadow-lg overflow-hidden z-5">
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/30 to-transparent"></div>
-          </div>
-          
-          {/* Crystal Base */}
-          <div className="absolute bottom-[5px] left-[30px] w-[120px] h-[15px] bg-purple-900/80 rounded-lg shadow-inner z-0"></div>
-          
-          {/* Light reflections */}
-          <div className="absolute top-[40px] left-[70px] w-[15px] h-[4px] bg-white/70 rounded-full transform rotate-[30deg] z-30"></div>
-          <div className="absolute top-[60px] left-[100px] w-[10px] h-[3px] bg-white/70 rounded-full transform rotate-[20deg] z-30"></div>
-          <div className="absolute top-[30px] left-[45px] w-[12px] h-[3px] bg-white/70 rounded-full transform rotate-[-10deg] z-30"></div>
         </div>
         
         {/* Hover instruction */}
