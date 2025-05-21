@@ -20,21 +20,22 @@ function CrystalCard({ image, title, description, tag, tagColor, price, delay }:
       viewport={{ once: true }}
       transition={{ delay: delay * 0.1, duration: 0.5 }}
     >
-      <div className="h-64 overflow-hidden">
+      <div className="h-48 sm:h-56 md:h-64 overflow-hidden">
         <img 
           src={image} 
           alt={title} 
           className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-105" 
+          loading="lazy"
         />
       </div>
-      <div className="p-6">
-        <h3 className="font-playfair font-semibold text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-2">{title}</h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-4">
+      <div className="p-4 sm:p-6">
+        <h3 className="font-playfair font-semibold text-lg sm:text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-2">{title}</h3>
+        <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm mb-3 sm:mb-4">
           {description}
         </p>
         <div className="flex justify-between items-center">
-          <span className={`text-sm text-[hsl(var(--${tagColor}))] font-medium`}>{tag}</span>
-          <span className="text-sm text-gray-500 dark:text-gray-400">{price}</span>
+          <span className={`text-xs sm:text-sm text-[hsl(var(--${tagColor}))] font-medium`}>{tag}</span>
+          <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">{price}</span>
         </div>
       </div>
     </motion.div>
