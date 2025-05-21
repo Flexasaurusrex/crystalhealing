@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { Sparkles, Baby, Heart, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
+import { InPlaceImageEditor } from "@/components/admin/InPlaceImageEditor";
 
 export function MissionSection() {
+  const [missionImage, setMissionImage] = useState("https://images.pexels.com/photos/1573236/pexels-photo-1573236.jpeg?auto=compress&cs=tinysrgb&w=1000&h=800&dpr=1");
   return (
     <section id="mission" className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -129,11 +132,14 @@ export function MissionSection() {
               </div>
             </div>
             <div className="lg:w-1/2 order-1 lg:order-2">
-              <img 
-                src="https://images.pexels.com/photos/1573236/pexels-photo-1573236.jpeg?auto=compress&cs=tinysrgb&w=1000&h=800&dpr=1" 
-                alt="Amethyst crystal display in a peaceful setting" 
-                className="w-full h-full object-cover" 
-              />
+              <div className="w-full h-full bg-gray-100 dark:bg-gray-800">
+                <InPlaceImageEditor
+                  currentImageUrl={missionImage}
+                  altText="Amethyst crystal display in a peaceful setting"
+                  className="w-full h-full object-contain"
+                  onImageUpdated={(newUrl) => setMissionImage(newUrl)}
+                />
+              </div>
             </div>
           </div>
         </motion.div>
