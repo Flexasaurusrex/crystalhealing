@@ -63,7 +63,7 @@ export function GallerySection() {
       delay: 2
     },
     {
-      image: "https://images.unsplash.com/photo-1519330377309-9ee1c6783348?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      image: "https://pixabay.com/get/g6cd1a1da32e23c13f1d96c8c8fb53c1d18cf20c6db5e7584a76ea62cae0b32290ecf1e2e9a65b6ece5c0b03b77c58f671ffabbb8ac68cf59cdef5c52b97d8a1c_1280.jpg",
       title: "Rose Quartz",
       description: "With their gentle pink color, these stones are particularly popular with younger children and create a calming visual experience.",
       tag: "Calming effect",
