@@ -14,6 +14,8 @@ interface CrystalCardProps {
 }
 
 function CrystalCard({ image, title, description, tag, tagColor, price, delay }: CrystalCardProps) {
+  const [crystalImage, setCrystalImage] = useState(image);
+
   return (
     <motion.div 
       className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
@@ -23,11 +25,11 @@ function CrystalCard({ image, title, description, tag, tagColor, price, delay }:
       transition={{ delay: delay * 0.1, duration: 0.5 }}
     >
       <div className="h-48 sm:h-56 md:h-64 overflow-hidden">
-        <img 
-          src={image} 
-          alt={title} 
-          className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-105" 
-          loading="lazy"
+        <InPlaceImageEditor
+          currentImageUrl={crystalImage}
+          altText={title}
+          className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-105"
+          onImageUpdated={(newUrl) => setCrystalImage(newUrl)}
         />
       </div>
       <div className="p-4 sm:p-6">
