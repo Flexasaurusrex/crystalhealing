@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, Heart, Droplet, Sun, Moon, Zap, Loader2 } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { InPlaceImageEditor } from "@/components/admin/InPlaceImageEditor";
+import { useQuery } from "@tanstack/react-query";
 
 // Crystal properties data with child-friendly descriptions and fun facts
 const crystalProperties = [
@@ -79,6 +80,34 @@ export function CrystalEducationSection() {
   const [generatedImages, setGeneratedImages] = useState<Record<string, string>>({});
   const [isGenerating, setIsGenerating] = useState<Record<string, boolean>>({});
   
+  // Fetch saved crystal images
+  const { data: savedImages, isLoading: isLoadingImages } = useQuery({
+    queryKey: ['/api/crystal-whispers-images'],
+    staleTime: 1000 * 60 * 5, // 5 minutes
+  });
+  
+  // Update local state with saved images from the server
+  useEffect(() => {
+    if (savedImages) {
+      const newImages: Record<string, string> = {};
+      
+      // Map crystal types to property IDs
+      crystalProperties.forEach(property => {
+        const crystalType = property.crystal.toLowerCase().replace(/\s+/g, '');
+        if (savedImages[crystalType] && savedImages[crystalType].length > 0) {
+          newImages[property.id] = savedImages[crystalType];
+        }
+      });
+      
+      if (Object.keys(newImages).length > 0) {
+        setGeneratedImages(prev => ({
+          ...prev,
+          ...newImages
+        }));
+      }
+    }
+  }, [savedImages]);
+  
   // Function to generate custom crystal images
   const generateImage = async (property: typeof crystalProperties[0]) => {
     if (generatedImages[property.id] || isGenerating[property.id]) return;
@@ -106,6 +135,34 @@ export function CrystalEducationSection() {
       console.error('Error generating crystal image:', error);
     } finally {
       setIsGenerating(prev => ({ ...prev, [property.id]: false }));
+    }
+  };
+  
+  // Function to save an updated image to the server
+  const saveImageToServer = async (crystalId: string, imageUrl: string) => {
+    const property = crystalProperties.find(prop => prop.id === crystalId);
+    if (!property) return;
+    
+    // Convert the crystal name to the format expected by the server (e.g., "Rose Quartz" -> "roseQuartz")
+    const crystalType = property.crystal.toLowerCase().replace(/\s+/g, '');
+    
+    try {
+      // If the image is a data URL (from direct upload), we need to skip this
+      if (imageUrl.startsWith('/uploads/')) {
+        // Image is already on the server, save the reference
+        await fetch('/api/upload-crystal-image', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            crystal: crystalType,
+            imageUrl,
+          }),
+        });
+      }
+    } catch (error) {
+      console.error('Error saving crystal image:', error);
     }
   };
   
@@ -215,6 +272,9 @@ export function CrystalEducationSection() {
                                 ...prev,
                                 [activeProperty.id]: newUrl
                               }));
+                              
+                              // Save the updated image to the server
+                              saveImageToServer(activeProperty.id, newUrl);
                             }
                           }}
                         />
