@@ -192,7 +192,7 @@ export function DonateSection() {
                     size="sm" 
                     className="text-xs"
                     onClick={() => {
-                      navigator.clipboard.writeText("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa");
+                      navigator.clipboard.writeText("bc1qa4mr440wjekqqjmqpywstndk0yzumxeclxl7n2");
                       toast({
                         title: "Address Copied!",
                         description: "Bitcoin address copied to clipboard.",
@@ -216,7 +216,7 @@ export function DonateSection() {
                     size="sm" 
                     className="text-xs"
                     onClick={() => {
-                      navigator.clipboard.writeText("0x0000000000000000000000000000000000000000");
+                      navigator.clipboard.writeText("bc1qa4mr440wjekqqjmqpywstndk0yzumxeclxl7n2");
                       toast({
                         title: "Address Copied!",
                         description: "Ethereum address copied to clipboard.",
@@ -240,7 +240,7 @@ export function DonateSection() {
                     size="sm" 
                     className="text-xs"
                     onClick={() => {
-                      navigator.clipboard.writeText("So11111111111111111111111111111111111111112");
+                      navigator.clipboard.writeText("81LDTAXT3BBZhvJfPeomAjRsLPJogvMVK6QwVcL3KeVa");
                       toast({
                         title: "Address Copied!",
                         description: "Solana address copied to clipboard.",
