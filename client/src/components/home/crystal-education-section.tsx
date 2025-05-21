@@ -46,6 +46,7 @@ const crystalProperties = [
     icon: <Sun className="h-6 w-6" />,
     description: "Citrine is a sunny crystal that brings happy, bright feelings just like a summer day.",
     funFact: "Citrine is one of the few crystals that never needs cleaning - it's always happy!",
+    promptDetails: "A natural citrine crystal with a warm golden yellow color. The crystal should have a honey-like appearance with natural facets that reflect light. Show the crystal's transparent to translucent quality with a cheerful, sunny glow that captures its energetic properties.",
     imageSrc: "https://images.pexels.com/photos/2517981/pexels-photo-2517981.jpeg?auto=compress&cs=tinysrgb&w=800&h=600"
   },
   {
@@ -56,6 +57,7 @@ const crystalProperties = [
     icon: <Moon className="h-6 w-6" />,
     description: "Selenite is a soft glowing crystal that helps bring peaceful sleep and calm dreams.",
     funFact: "Selenite is named after Selene, the Greek goddess of the moon!",
+    promptDetails: "A selenite crystal wand or tower with a pearly white, luminous appearance. The crystal should have a fibrous structure with a silky, striated surface that gives it a moonlight glow. Show its typical elongated form with a gentle translucence that diffuses light beautifully.",
     imageSrc: "https://images.pexels.com/photos/7419969/pexels-photo-7419969.jpeg?auto=compress&cs=tinysrgb&w=800&h=600"
   },
   {
@@ -66,15 +68,55 @@ const crystalProperties = [
     icon: <Zap className="h-6 w-6" />,
     description: "Fluorite comes in many colors and helps you feel brave when things seem scary.",
     funFact: "Fluorite can glow in the dark under special lights - like magic!",
+    promptDetails: "A fluorite crystal showing its characteristic cubic or octahedral structure with bands of green, purple, and blue colors. The crystal should demonstrate fluorite's natural color zoning with multiple colors in a single specimen. Show its glassy luster and transparent to translucent quality.",
     imageSrc: "https://images.pexels.com/photos/7650616/pexels-photo-7650616.jpeg?auto=compress&cs=tinysrgb&w=800&h=600"
   }
 ];
 
 export function CrystalEducationSection() {
   const [selectedProperty, setSelectedProperty] = useState<string | null>(null);
+  const [generatedImages, setGeneratedImages] = useState<Record<string, string>>({});
+  const [isGenerating, setIsGenerating] = useState<Record<string, boolean>>({});
+  
+  // Function to generate custom crystal images
+  const generateImage = async (property: typeof crystalProperties[0]) => {
+    if (generatedImages[property.id] || isGenerating[property.id]) return;
+    
+    setIsGenerating(prev => ({ ...prev, [property.id]: true }));
+    
+    try {
+      const response = await fetch('/api/generate-crystal-image', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          prompt: property.promptDetails,
+          name: property.crystal
+        })
+      });
+      
+      const data = await response.json();
+      
+      if (data.imagePath) {
+        setGeneratedImages(prev => ({ ...prev, [property.id]: data.imagePath }));
+      }
+    } catch (error) {
+      console.error('Error generating crystal image:', error);
+    } finally {
+      setIsGenerating(prev => ({ ...prev, [property.id]: false }));
+    }
+  };
   
   // Find the currently selected property
   const activeProperty = crystalProperties.find(prop => prop.id === selectedProperty);
+  
+  // Generate image when a property is selected
+  useEffect(() => {
+    if (activeProperty && !generatedImages[activeProperty.id] && !isGenerating[activeProperty.id]) {
+      generateImage(activeProperty);
+    }
+  }, [selectedProperty]);
 
   return (
     <section id="crystal-education" className="py-16 sm:py-20 bg-gradient-to-b from-white to-purple-50 dark:from-gray-900 dark:to-purple-950/20">
@@ -156,11 +198,18 @@ export function CrystalEducationSection() {
                   <div className="w-full sm:w-1/2 mb-6 sm:mb-0 sm:pr-6">
                     <div className="aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 flex items-center justify-center relative">
                       {/* Crystal Image */}
-                      <img 
-                        src={activeProperty?.imageSrc} 
-                        alt={`${activeProperty?.crystal} crystal`}
-                        className="w-full h-full object-cover"
-                      />
+                      {activeProperty && isGenerating[activeProperty.id] ? (
+                        <div className="flex flex-col items-center justify-center w-full h-full">
+                          <Loader2 className="w-10 h-10 text-purple-500 animate-spin mb-3" />
+                          <p className="text-sm text-gray-500 dark:text-gray-400">Creating custom {activeProperty.crystal} image...</p>
+                        </div>
+                      ) : (
+                        <img 
+                          src={activeProperty ? (generatedImages[activeProperty.id] || activeProperty.imageSrc) : ''}
+                          alt={`${activeProperty?.crystal || 'Crystal'}`}
+                          className="w-full h-full object-cover"
+                        />
+                      )}
                       
                       {/* Sparkles overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-50" />

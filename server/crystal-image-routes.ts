@@ -4,7 +4,7 @@ import { generateCrystalImage } from './image-generator';
 const router = Router();
 
 // Route to generate crystal images
-router.post('/api/generate-crystal-image', async (req: Request, res: Response) => {
+router.post('/generate-crystal-image', async (req: Request, res: Response) => {
   try {
     const { prompt, name } = req.body;
     
