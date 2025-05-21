@@ -47,7 +47,7 @@ const crystalProperties = [
     description: "Citrine is a sunny crystal that brings happy, bright feelings just like a summer day.",
     funFact: "Citrine is one of the few crystals that never needs cleaning - it's always happy!",
     promptDetails: "A natural citrine crystal with a warm golden yellow color. The crystal should have a honey-like appearance with natural facets that reflect light. Show the crystal's transparent to translucent quality with a cheerful, sunny glow that captures its energetic properties.",
-    imageSrc: "https://cdn.shopify.com/s/files/1/0549/5835/2741/products/IMG_6018.jpg"
+    imageSrc: "https://cdn.shopify.com/s/files/1/1302/1049/products/Natural_Citrine_Crystal_Point_3_1000x.jpg"
   },
   {
     id: "calm",
