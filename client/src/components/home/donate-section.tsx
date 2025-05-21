@@ -38,17 +38,13 @@ function InteractiveCrystal() {
   const handleCrystalClick = () => {
     // Start animation and add sparkles
     setIsAnimating(true);
-    setSparkleCount(prev => Math.min(prev + 3, 20)); // Add more sparkles up to a maximum
+    setSparkleCount(prev => Math.min(prev + 5, 30)); // Add more sparkles up to a maximum
     
     // Animate the crystal - pulse and change colors
     controls.start({
-      scale: [1, 1.1, 1],
-      rotate: [0, 5, -5, 0],
-      backgroundColor: [
-        crystalColors[Math.floor(Math.random() * crystalColors.length)],
-        crystalColors[Math.floor(Math.random() * crystalColors.length)],
-        "#9c27b0" // Return to purple
-      ],
+      scale: [1, 1.15, 1],
+      opacity: [1, 0.8, 1],
+      filter: ["brightness(1)", "brightness(1.5)", "brightness(1)"],
       transition: { 
         duration: 1.5,
         ease: "easeInOut"
@@ -65,17 +61,14 @@ function InteractiveCrystal() {
   const generateSparklePosition = () => {
     if (!crystalRef.current) return { top: "50%", left: "50%" };
     
-    const width = crystalRef.current.offsetWidth;
-    const height = crystalRef.current.offsetHeight;
-    
     return {
-      top: `${Math.random() * 120 - 10}%`,
-      left: `${Math.random() * 120 - 10}%`
+      top: `${Math.random() * 200 - 50}%`,
+      left: `${Math.random() * 200 - 50}%`
     };
   };
   
   return (
-    <div className="relative w-full h-[120px] flex items-center justify-center mt-8">
+    <div className="relative w-full h-[300px] flex items-center justify-center my-12">
       <motion.div
         ref={crystalRef}
         className="cursor-pointer relative"
@@ -84,18 +77,40 @@ function InteractiveCrystal() {
         whileHover={{ scale: 1.05 }}
         initial={{ scale: 1 }}
       >
-        {/* Main Crystal */}
-        <div className="w-24 h-32 bg-purple-600 rounded-lg relative transform rotate-45 shadow-xl overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-400/30 to-transparent"></div>
-          <div className="absolute top-1/3 left-1/4 w-1/2 h-1/3 bg-white/20 rounded-full blur-sm"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-1/3 h-1/4 bg-purple-300/30 rounded-full blur-sm"></div>
+        {/* Crystal Cluster - Multiple facets */}
+        <div className="relative h-[180px] w-[180px]">
+          {/* Main crystal */}
+          <div className="absolute top-[10px] left-[40px] w-[100px] h-[160px] bg-gradient-to-br from-purple-400 to-purple-700 rounded-t-lg rounded-b-sm transform -rotate-[15deg] shadow-xl overflow-hidden z-10">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/30 to-transparent"></div>
+            <div className="absolute top-1/3 left-1/4 w-1/2 h-1/3 bg-white/40 rounded-full blur-sm"></div>
+          </div>
+          
+          {/* Secondary crystal */}
+          <div className="absolute top-[30px] left-[85px] w-[70px] h-[130px] bg-gradient-to-br from-purple-500 to-purple-800 rounded-t-lg rounded-b-sm transform rotate-[20deg] shadow-lg overflow-hidden z-20">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/20 to-transparent"></div>
+          </div>
+          
+          {/* Crystal point */}
+          <div className="absolute top-[10px] left-[25px] w-[60px] h-[100px] bg-gradient-to-br from-purple-300 to-purple-600 rounded-t-lg rounded-b-sm transform -rotate-[25deg] shadow-lg overflow-hidden z-0">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/30 to-transparent"></div>
+          </div>
+          
+          {/* Small crystal accent */}
+          <div className="absolute top-[60px] left-[15px] w-[40px] h-[60px] bg-gradient-to-br from-purple-400 to-purple-700 rounded-t-lg rounded-b-sm transform rotate-[10deg] shadow-lg overflow-hidden z-5">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/30 to-transparent"></div>
+          </div>
+          
+          {/* Crystal Base */}
+          <div className="absolute bottom-[5px] left-[30px] w-[120px] h-[15px] bg-purple-900/80 rounded-lg shadow-inner z-0"></div>
+          
+          {/* Light reflections */}
+          <div className="absolute top-[40px] left-[70px] w-[15px] h-[4px] bg-white/70 rounded-full transform rotate-[30deg] z-30"></div>
+          <div className="absolute top-[60px] left-[100px] w-[10px] h-[3px] bg-white/70 rounded-full transform rotate-[20deg] z-30"></div>
+          <div className="absolute top-[30px] left-[45px] w-[12px] h-[3px] bg-white/70 rounded-full transform rotate-[-10deg] z-30"></div>
         </div>
         
-        {/* Crystal Base */}
-        <div className="w-20 h-6 bg-purple-900 rounded-lg absolute -bottom-3 left-2 transform rotate-45 shadow-md"></div>
-        
         {/* Hover instruction */}
-        <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-purple-200 text-sm font-medium">
+        <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-purple-200 text-sm font-medium">
           Click for magic!
         </div>
         
@@ -109,8 +124,8 @@ function InteractiveCrystal() {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: [0, 1.5, 0] }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: Math.random() * 1 + 0.5 }}
-                className="absolute w-3 h-3 text-yellow-200"
+                transition={{ duration: Math.random() * 1.5 + 0.5 }}
+                className="absolute w-4 h-4 text-yellow-200"
                 style={{ top: position.top, left: position.left }}
               >
                 <Sparkles className="w-full h-full" />
