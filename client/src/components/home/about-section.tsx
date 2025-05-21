@@ -67,14 +67,7 @@ export function AboutSection() {
               </div>
             </div>
             
-            <div className="flex items-center space-x-4">
-              <Button 
-                className="bg-[hsl(var(--purple-500))] hover:bg-[hsl(var(--purple-800))] font-montserrat text-white px-6 py-2 rounded-full shadow-sm"
-                asChild
-              >
-                <a href="#gallery">See Our Crystals</a>
-              </Button>
-            </div>
+
           </motion.div>
         </div>
         
