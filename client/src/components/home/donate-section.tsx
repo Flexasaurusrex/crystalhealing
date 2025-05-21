@@ -159,6 +159,9 @@ export function DonateSection() {
                     {selectedAmount ? `Donate $${selectedAmount} Now` : 'Donate Now'}
                   </a>
                 </Button>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-3 text-center">
+                  Prefer payment methods other than Venmo? Reach out and we can accommodate requests including cash or money order.
+                </p>
               </motion.div>
             </div>
             
