@@ -101,26 +101,51 @@ export function InPlaceImageEditor({
 
   // If not admin, just show the image
   if (!isAdmin) {
-    return <img src={currentImageUrl} alt={altText} className={className} />;
+    return currentImageUrl ? 
+      <img src={currentImageUrl} alt={altText} className={className} /> : 
+      <div className={`${className} bg-gray-100 dark:bg-gray-800 flex items-center justify-center`}>
+        <span className="text-gray-400 text-sm">Image will appear here</span>
+      </div>;
+  }
+
+  // For empty images in admin mode, force editing mode to make it easier to upload
+  const isEmpty = !currentImageUrl && isAdmin;
+  if (isEmpty && !isEditing) {
+    setIsEditing(true);
   }
 
   return (
-    <div className="group relative">
-      <img 
-        src={currentImageUrl} 
-        alt={altText} 
-        className={`${className} ${isEditing ? 'opacity-50' : ''}`}
-      />
+    <div 
+      className="group relative min-h-[200px] bg-gray-100 dark:bg-gray-800 flex items-center justify-center cursor-pointer"
+      onClick={() => !isEditing && setIsEditing(true)}
+    >
+      {currentImageUrl ? (
+        <img 
+          src={currentImageUrl} 
+          alt={altText} 
+          className={`${className} ${isEditing ? 'opacity-50' : ''}`}
+        />
+      ) : (
+        <div className="flex flex-col items-center justify-center">
+          <Edit2 className="h-10 w-10 text-gray-400 mb-2" />
+          <p className="text-gray-500 dark:text-gray-400 text-center px-4">
+            Click to upload image
+          </p>
+        </div>
+      )}
       
-      {!isEditing && (
+      {!isEditing && !isEmpty && (
         <Button
           variant="outline"
           size="sm"
           className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-white dark:bg-gray-800"
-          onClick={() => setIsEditing(true)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsEditing(true);
+          }}
         >
           <Edit2 className="h-4 w-4 mr-1" />
-          Edit
+          {currentImageUrl ? 'Edit' : 'Upload'}
         </Button>
       )}
       
