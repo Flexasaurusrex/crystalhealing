@@ -1,0 +1,125 @@
+import { motion } from "framer-motion";
+import { Sparkles, Baby, Heart, CheckCircle2 } from "lucide-react";
+
+export function MissionSection() {
+  return (
+    <section id="mission" className="py-20 bg-white dark:bg-gray-900">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="font-playfair font-bold text-3xl md:text-4xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-4">Our Mission</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-[hsl(var(--purple-500))] to-[hsl(var(--pink-400))] mx-auto mb-6"></div>
+          <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            We believe in the power of natural beauty to inspire hope and healing. Our mission is to bring the therapeutic 
+            visual elements of crystals to children facing medical challenges.
+          </p>
+        </motion.div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div 
+            className="bg-[hsl(var(--stone-50))] dark:bg-gray-800 rounded-xl p-6 shadow-sm gradient-border pl-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+          >
+            <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center mb-6">
+              <Sparkles className="h-6 w-6 text-[hsl(var(--purple-500))]" />
+            </div>
+            <h3 className="font-playfair font-semibold text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-3">Visual Therapy</h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              Our crystal displays provide visual stimulation and can create a sense of wonder and beauty in 
+              healthcare environments that can often feel clinical and sterile.
+            </p>
+          </motion.div>
+          
+          <motion.div 
+            className="bg-[hsl(var(--stone-50))] dark:bg-gray-800 rounded-xl p-6 shadow-sm gradient-border pl-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            <div className="w-16 h-16 bg-green-100 dark:bg-green-900/50 rounded-lg flex items-center justify-center mb-6">
+              <Baby className="h-6 w-6 text-[hsl(var(--green-500))]" />
+            </div>
+            <h3 className="font-playfair font-semibold text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-3">Child-Centered Care</h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              We work directly with healthcare providers to ensure our crystal programs integrate with existing 
+              treatment protocols and enhance the healing environment.
+            </p>
+          </motion.div>
+          
+          <motion.div 
+            className="bg-[hsl(var(--stone-50))] dark:bg-gray-800 rounded-xl p-6 shadow-sm gradient-border pl-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            <div className="w-16 h-16 bg-pink-100 dark:bg-pink-900/50 rounded-lg flex items-center justify-center mb-6">
+              <Heart className="h-6 w-6 text-[hsl(var(--pink-400))]" />
+            </div>
+            <h3 className="font-playfair font-semibold text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-3">Community Support</h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              We build a bridge between the crystal community and pediatric healthcare facilities, creating a 
+              network of ongoing support for children in need.
+            </p>
+          </motion.div>
+        </div>
+        
+        <motion.div 
+          className="mt-16 bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+        >
+          <div className="flex flex-col lg:flex-row">
+            <div className="lg:w-1/2 order-2 lg:order-1 p-8 md:p-12 flex items-center">
+              <div>
+                <h3 className="font-playfair font-bold text-2xl md:text-3xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-5">A Compassionate Approach</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  Our program is designed with input from child life specialists, healthcare professionals, and the children themselves. 
+                  We take a holistic approach that considers the total environment of a child's healing journey.
+                </p>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-start space-x-3">
+                    <CheckCircle2 className="h-5 w-5 mt-1 text-[hsl(var(--green-500))]" />
+                    <span className="text-gray-600 dark:text-gray-300">Customized crystal selections based on age and interest</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <CheckCircle2 className="h-5 w-5 mt-1 text-[hsl(var(--green-500))]" />
+                    <span className="text-gray-600 dark:text-gray-300">Educational materials to inspire curiosity and wonder</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <CheckCircle2 className="h-5 w-5 mt-1 text-[hsl(var(--green-500))]" />
+                    <span className="text-gray-600 dark:text-gray-300">Follow-up programs to maintain engagement</span>
+                  </li>
+                </ul>
+                <a href="#about" className="font-montserrat inline-flex items-center space-x-2 text-[hsl(var(--purple-500))] font-medium hover:text-[hsl(var(--purple-800))] transition-colors">
+                  <span>Learn about our partnerships</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div className="lg:w-1/2 order-1 lg:order-2">
+              <img 
+                src="https://images.unsplash.com/photo-1536148935331-408321065b18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=800" 
+                alt="Child exploring a crystal in a healing environment" 
+                className="w-full h-full object-cover" 
+              />
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
