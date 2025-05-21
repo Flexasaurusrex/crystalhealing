@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Gem, Heart, Check } from "lucide-react";
+import { Gem, Heart, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,9 +8,19 @@ import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { ContactFormData } from "@shared/schema";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from "@/components/ui/dialog";
 
 export function DonateSection() {
   const [selectedAmount, setSelectedAmount] = useState<string | null>(null);
+  const [showDonationGuidelines, setShowDonationGuidelines] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -87,12 +97,12 @@ export function DonateSection() {
                   Donate high-quality crystal specimens directly. We accept amethyst, clear quartz, 
                   rose quartz, and other visually appealing crystals.
                 </p>
-                <a href="#" className="text-[hsl(var(--purple-500))] font-medium hover:text-[hsl(var(--purple-800))] transition-colors inline-flex items-center space-x-2">
+                <Button variant="link" className="text-[hsl(var(--purple-500))] font-medium hover:text-[hsl(var(--purple-800))] p-0 h-auto transition-colors inline-flex items-center space-x-2" onClick={() => setShowDonationGuidelines(true)}>
                   <span>Donation guidelines</span>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
-                </a>
+                </Button>
               </motion.div>
               
               <motion.div 
@@ -240,6 +250,78 @@ export function DonateSection() {
           </div>
         </motion.div>
       </div>
+      
+      {/* Donation Guidelines Dialog */}
+      <Dialog open={showDonationGuidelines} onOpenChange={setShowDonationGuidelines}>
+        <DialogContent className="max-w-lg">
+          <DialogHeader>
+            <DialogTitle className="text-[hsl(var(--purple-800))] dark:text-purple-300 font-playfair text-2xl">Crystal Donation Guidelines</DialogTitle>
+            <DialogDescription className="text-gray-600 dark:text-gray-300 pt-2">
+              Thank you for your interest in donating crystals to our program. Please review these guidelines before proceeding.
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="space-y-4 my-2">
+            <div className="bg-[hsl(var(--stone-50))] dark:bg-gray-800 p-4 rounded-lg">
+              <h3 className="font-semibold text-[hsl(var(--purple-800))] dark:text-purple-300 mb-2 flex items-center gap-2">
+                <Check className="h-5 w-5 text-[hsl(var(--green-500))]" />
+                Pre-Approval Required
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
+                All crystal donations must be pre-approved by our team. Please contact us using the form to initiate the process and we'll provide detailed instructions.
+              </p>
+            </div>
+            
+            <div className="bg-[hsl(var(--stone-50))] dark:bg-gray-800 p-4 rounded-lg">
+              <h3 className="font-semibold text-[hsl(var(--purple-800))] dark:text-purple-300 mb-2 flex items-center gap-2">
+                <Check className="h-5 w-5 text-[hsl(var(--green-500))]" />
+                Size Requirements
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
+                All donated crystals must be a minimum of 3 inches (7.5 cm) in size to ensure proper visibility and display value in hospital settings.
+              </p>
+            </div>
+            
+            <div className="bg-[hsl(var(--stone-50))] dark:bg-gray-800 p-4 rounded-lg">
+              <h3 className="font-semibold text-[hsl(var(--purple-800))] dark:text-purple-300 mb-2 flex items-center gap-2">
+                <Check className="h-5 w-5 text-[hsl(var(--green-500))]" />
+                Cleanliness & Condition
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
+                Crystals must be thoroughly cleaned and in excellent condition. They should be free from dirt, dust, and any residues that could affect their appearance or safety.
+              </p>
+            </div>
+            
+            <div className="bg-[hsl(var(--stone-50))] dark:bg-gray-800 p-4 rounded-lg">
+              <h3 className="font-semibold text-[hsl(var(--purple-800))] dark:text-purple-300 mb-2 flex items-center gap-2">
+                <Check className="h-5 w-5 text-[hsl(var(--green-500))]" />
+                Packaging Requirements
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
+                Crystals must be well-packaged for shipping to prevent damage. We recommend double-boxing with appropriate cushioning materials to ensure safe arrival.
+              </p>
+            </div>
+            
+            <div className="bg-[hsl(var(--stone-50))] dark:bg-gray-800 p-4 rounded-lg">
+              <h3 className="font-semibold text-[hsl(var(--purple-800))] dark:text-purple-300 mb-2 flex items-center gap-2">
+                <Check className="h-5 w-5 text-[hsl(var(--green-500))]" />
+                Shipping Information
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
+                Once your donation is approved, we will provide you with a shipping address and any additional instructions needed for delivery.
+              </p>
+            </div>
+          </div>
+          
+          <DialogFooter>
+            <DialogClose asChild>
+              <Button type="button" className="bg-[hsl(var(--purple-500))] hover:bg-[hsl(var(--purple-800))]">
+                I Understand
+              </Button>
+            </DialogClose>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
