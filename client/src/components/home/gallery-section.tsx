@@ -64,7 +64,7 @@ export function GallerySection() {
       description: "These purple beauties are among our most popular donations, with their striking color and fascinating geometric crystal formations.",
       tag: "Most requested",
       tagColor: "green-500",
-      price: "$75-150 per specimen",
+      price: "$25-150 per specimen",
       delay: 1
     },
     {
@@ -73,7 +73,7 @@ export function GallerySection() {
       description: "These crystal points catch and reflect light beautifully, creating rainbow prisms that delight children of all ages.",
       tag: "Great for all ages",
       tagColor: "pink-400",
-      price: "$50-100 per specimen",
+      price: "$50-150 per specimen",
       delay: 2
     },
     {
@@ -82,7 +82,7 @@ export function GallerySection() {
       description: "With their gentle pink color, these stones are particularly popular with younger children and create a calming visual experience.",
       tag: "Calming effect",
       tagColor: "purple-500",
-      price: "$45-90 per specimen",
+      price: "$50-150 per specimen",
       delay: 3
     },
     {
@@ -91,7 +91,7 @@ export function GallerySection() {
       description: "These multi-colored crystals feature bands of purple, green, and blue, making them particularly fascinating visual tools.",
       tag: "Color variety",
       tagColor: "green-500",
-      price: "$60-120 per specimen",
+      price: "$50-125 per specimen",
       delay: 4
     },
     {
@@ -100,7 +100,7 @@ export function GallerySection() {
       description: "These luminous white crystals have a gentle glow and fibrous texture that children find both calming and intriguing.",
       tag: "Gentle glow",
       tagColor: "pink-400",
-      price: "$40-80 per specimen",
+      price: "$20-50 per specimen",
       delay: 5
     },
     {
@@ -109,7 +109,7 @@ export function GallerySection() {
       description: "With their sunny yellow color, these crystals bring a bright energy to any room and are especially popular in long-term care settings.",
       tag: "Brightens spaces",
       tagColor: "purple-500",
-      price: "$55-110 per specimen",
+      price: "$25-150 per specimen",
       delay: 6
     }
   ];
