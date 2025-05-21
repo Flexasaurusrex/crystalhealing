@@ -14,7 +14,7 @@ const crystalProperties = [
     description: "Amethyst crystals are like little purple healers. They help bring peaceful feelings when you look at them.",
     funFact: "Ancient people believed amethyst could protect them from bad dreams!",
     promptDetails: "A purple amethyst crystal with natural facets and points. The crystal should have a deep violet color with translucent quality that allows light to pass through. Show the natural hexagonal crystal structure with pyramid-shaped terminations.",
-    imageSrc: "https://images.pexels.com/photos/5368743/pexels-photo-5368743.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&dpr=1"
+    imageSrc: "https://www.crystalvaults.com/wp-content/uploads/2022/05/920b4e031b1adf2ceb4e01a5e2b7d1cb.jpg"
   },
   {
     id: "love",
@@ -25,7 +25,7 @@ const crystalProperties = [
     description: "Rose quartz is a gentle pink crystal that reminds us to be kind to ourselves and others.",
     funFact: "Rose quartz is sometimes called the 'love stone' because of its pretty pink color!",
     promptDetails: "A rose quartz crystal specimen with a soft pink color. The crystal should have a gentle, opaque or translucent quality with a subtle, comforting glow. The surface should have a smooth, polished appearance typical of tumbled rose quartz.",
-    imageSrc: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&dpr=1"
+    imageSrc: "https://cdn.shopify.com/s/files/1/0073/3732/9111/files/rose_quartz_1.jpg"
   },
   {
     id: "clarity",
@@ -36,7 +36,7 @@ const crystalProperties = [
     description: "Clear quartz is like a bright light for your thoughts, helping you think happy, clear thoughts.",
     funFact: "Clear quartz can create rainbows when sunlight shines through it!",
     promptDetails: "A clear quartz crystal point with excellent clarity. The crystal should be transparent and prismatic, showing its natural hexagonal structure with a pointed termination. It should have a glass-like appearance with internal refraction creating small rainbow effects where light hits it.",
-    imageSrc: "https://images.pexels.com/photos/11075457/pexels-photo-11075457.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&dpr=1"
+    imageSrc: "https://cdn.shopify.com/s/files/1/1302/1049/products/10-Clear_Quartz_Crystal_1_1000x.jpg"
   },
   {
     id: "energy",
@@ -47,7 +47,7 @@ const crystalProperties = [
     description: "Citrine is a sunny crystal that brings happy, bright feelings just like a summer day.",
     funFact: "Citrine is one of the few crystals that never needs cleaning - it's always happy!",
     promptDetails: "A natural citrine crystal with a warm golden yellow color. The crystal should have a honey-like appearance with natural facets that reflect light. Show the crystal's transparent to translucent quality with a cheerful, sunny glow that captures its energetic properties.",
-    imageSrc: "https://images.pexels.com/photos/2517981/pexels-photo-2517981.jpeg?auto=compress&cs=tinysrgb&w=800&h=600"
+    imageSrc: "https://cdn.shopify.com/s/files/1/0549/5835/2741/products/IMG_6018.jpg"
   },
   {
     id: "calm",
@@ -58,7 +58,7 @@ const crystalProperties = [
     description: "Selenite is a soft glowing crystal that helps bring peaceful sleep and calm dreams.",
     funFact: "Selenite is named after Selene, the Greek goddess of the moon!",
     promptDetails: "A selenite crystal wand or tower with a pearly white, luminous appearance. The crystal should have a fibrous structure with a silky, striated surface that gives it a moonlight glow. Show its typical elongated form with a gentle translucence that diffuses light beautifully.",
-    imageSrc: "https://images.pexels.com/photos/7419969/pexels-photo-7419969.jpeg?auto=compress&cs=tinysrgb&w=800&h=600"
+    imageSrc: "https://cdn.shopify.com/s/files/1/2152/1405/products/DSC04573wm_1200x.jpg"
   },
   {
     id: "protection",
@@ -69,7 +69,7 @@ const crystalProperties = [
     description: "Fluorite comes in many colors and helps you feel brave when things seem scary.",
     funFact: "Fluorite can glow in the dark under special lights - like magic!",
     promptDetails: "A fluorite crystal showing its characteristic cubic or octahedral structure with bands of green, purple, and blue colors. The crystal should demonstrate fluorite's natural color zoning with multiple colors in a single specimen. Show its glassy luster and transparent to translucent quality.",
-    imageSrc: "https://images.pexels.com/photos/7650616/pexels-photo-7650616.jpeg?auto=compress&cs=tinysrgb&w=800&h=600"
+    imageSrc: "https://cdn.shopify.com/s/files/1/1302/1049/products/Rainbow_Fluorite_with_Green_Flash_from_Mexico_2_1000x.jpg"
   }
 ];
 
