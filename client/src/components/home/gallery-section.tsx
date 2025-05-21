@@ -18,13 +18,13 @@ function CrystalCard({ image, title, description, tag, tagColor, price, delay }:
 
   return (
     <motion.div 
-      className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col h-full"
+      className="h-[500px] md:h-[550px] bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: delay * 0.1, duration: 0.5 }}
     >
-      <div className="aspect-square w-full overflow-hidden">
+      <div className="h-[250px] md:h-[280px] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
         <InPlaceImageEditor
           currentImageUrl={crystalImage}
           altText={title}
@@ -32,14 +32,14 @@ function CrystalCard({ image, title, description, tag, tagColor, price, delay }:
           onImageUpdated={(newUrl) => setCrystalImage(newUrl)}
         />
       </div>
-      <div className="p-4 sm:p-6 flex-grow flex flex-col">
-        <h3 className="font-playfair font-semibold text-lg sm:text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-2">{title}</h3>
-        <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm mb-3 sm:mb-4 flex-grow">
+      <div className="p-5 md:p-6 h-[250px] md:h-[270px] flex flex-col">
+        <h3 className="font-playfair font-semibold text-lg md:text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-2 md:mb-3">{title}</h3>
+        <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 md:mb-6 flex-1">
           {description}
         </p>
-        <div className="flex justify-between items-center mt-auto">
-          <span className={`text-xs sm:text-sm text-[hsl(var(--${tagColor}))] font-medium`}>{tag}</span>
-          <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">{price}</span>
+        <div className="flex justify-between items-center border-t border-gray-100 dark:border-gray-800 pt-3 md:pt-4">
+          <span className={`text-sm text-[hsl(var(--${tagColor}))] font-medium`}>{tag}</span>
+          <span className="text-sm text-gray-500 dark:text-gray-400">{price}</span>
         </div>
       </div>
     </motion.div>
