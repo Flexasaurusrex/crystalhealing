@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, Heart, Droplet, Sun, Moon, Zap, Loader2 } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
+import { InPlaceImageEditor } from "@/components/admin/InPlaceImageEditor";
 
 // Crystal properties data with child-friendly descriptions and fun facts
 const crystalProperties = [
@@ -204,10 +205,18 @@ export function CrystalEducationSection() {
                           <p className="text-sm text-gray-500 dark:text-gray-400">Creating custom {activeProperty.crystal} image...</p>
                         </div>
                       ) : (
-                        <img 
-                          src={activeProperty ? (generatedImages[activeProperty.id] || activeProperty.imageSrc) : ''}
-                          alt={`${activeProperty?.crystal || 'Crystal'}`}
+                        <InPlaceImageEditor
+                          currentImageUrl={activeProperty ? (generatedImages[activeProperty.id] || activeProperty.imageSrc) : ''}
+                          altText={`${activeProperty?.crystal || 'Crystal'}`}
                           className="w-full h-full object-cover"
+                          onImageUpdated={(newUrl) => {
+                            if (activeProperty) {
+                              setGeneratedImages(prev => ({
+                                ...prev,
+                                [activeProperty.id]: newUrl
+                              }));
+                            }
+                          }}
                         />
                       )}
                       
