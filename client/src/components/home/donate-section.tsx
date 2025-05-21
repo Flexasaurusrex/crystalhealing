@@ -77,15 +77,15 @@ function InteractiveCrystal() {
         initial={{ scale: 1 }}
       >
         {/* Exact diamond logo SVG animation */}
-        <div className="relative h-[200px] w-[200px] flex items-center justify-center">
+        <div className="relative h-[300px] w-full flex items-center justify-center">
           {/* Diamond SVG that matches your logo exactly */}
           <svg 
-            width="150" 
-            height="150" 
+            width="195" 
+            height="195" 
             viewBox="0 0 50 50" 
             fill="none" 
             xmlns="http://www.w3.org/2000/svg"
-            className="transform scale-[1.2]"
+            className="transform scale-[1.5]"
           >
             {/* Top half */}
             <path 
