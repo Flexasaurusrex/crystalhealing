@@ -12,21 +12,38 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Crystals for Kids | Healing Through Visual Therapy</title>
+        <title>Crystals for Kids | Visual Therapy for Pediatric Patients</title>
+        
+        {/* More detailed and keyword-rich page-specific description */}
         <meta 
           name="description" 
-          content="Crystals for Kids is a nonprofit organization that donates display crystals as visual therapy tools for children in hospitals, partnering with St. Jude's and other healthcare facilities."
+          content="Crystals for Kids donates beautiful crystal displays to children's hospitals nationwide. Our visual therapy program brings joy, comfort, and wonder to young patients through natural crystal specimens in partnership with St. Jude's."
         />
-        <meta property="og:title" content="Crystals for Kids | Healing Through Visual Therapy" />
-        <meta 
-          property="og:description" 
-          content="We bring the wonder and beauty of crystals to children facing medical challenges in hospitals across the country."
-        />
-        <meta property="og:type" content="website" />
-        <link 
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&family=Montserrat:wght@500;600&display=swap" 
-          rel="stylesheet"
-        />
+        
+        {/* Structured data for better Google understanding */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "NonprofitOrganization",
+              "name": "Crystals for Kids",
+              "description": "Nonprofit organization providing crystal visual therapy to children in hospitals",
+              "url": "https://crystalsforkids.org",
+              "logo": "https://crystalsforkids.org/logo.png",
+              "sameAs": [
+                "https://facebook.com/crystalsforkids",
+                "https://instagram.com/crystalsforkids",
+                "https://twitter.com/crystalsforkids"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+1-555-123-4567",
+                "contactType": "customer service",
+                "email": "info@crystalsforkids.org"
+              }
+            }
+          `}
+        </script>
       </Helmet>
       <Navbar />
       <main>

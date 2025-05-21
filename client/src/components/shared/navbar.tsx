@@ -41,18 +41,16 @@ export function Navbar() {
     <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? "bg-white/95 dark:bg-gray-900/95 shadow-sm" : "bg-transparent"}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <Link href="/">
-            <a className="flex items-center space-x-2">
-              <Gem className="text-[hsl(var(--purple-500))] h-8 w-8" />
-              <div>
-                <h1 className="font-playfair font-bold text-xl sm:text-2xl text-[hsl(var(--purple-800))] dark:text-[hsl(var(--purple-500))]">
-                  Crystals for Kids
-                </h1>
-                <p className="text-xs text-[hsl(var(--green-500))] font-montserrat tracking-wider">
-                  HEALING THROUGH VISUAL THERAPY
-                </p>
-              </div>
-            </a>
+          <Link href="/" className="flex items-center space-x-2">
+            <Gem className="text-[hsl(var(--purple-500))] h-8 w-8" />
+            <div>
+              <h1 className="font-playfair font-bold text-xl sm:text-2xl text-[hsl(var(--purple-800))] dark:text-[hsl(var(--purple-500))]">
+                Crystals for Kids
+              </h1>
+              <p className="text-xs text-[hsl(var(--green-500))] font-montserrat tracking-wider">
+                HEALING THROUGH VISUAL THERAPY
+              </p>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
