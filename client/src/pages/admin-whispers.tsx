@@ -322,9 +322,14 @@ export default function AdminWhispersPage() {
             </Link>
             <h1 className="text-3xl font-bold">Crystal Whispers Admin</h1>
           </div>
-          <Button variant="outline" onClick={() => setIsAuthenticated(false)}>
-            Log Out
-          </Button>
+          <div className="flex space-x-2">
+            <Button variant="default" asChild>
+              <Link href="/">Back to Home</Link>
+            </Button>
+            <Button variant="outline" onClick={() => setIsAuthenticated(false)}>
+              Log Out
+            </Button>
+          </div>
         </div>
 
         <div className="space-y-8">

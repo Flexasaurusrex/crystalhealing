@@ -438,9 +438,14 @@ export default function AdminPage() {
       <div className="container mx-auto py-8 px-4">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold">Admin Panel</h1>
-          <Button variant="outline" onClick={() => setIsAuthenticated(false)}>
-            Log Out
-          </Button>
+          <div className="flex space-x-2">
+            <Button variant="default" asChild>
+              <Link href="/">Back to Home</Link>
+            </Button>
+            <Button variant="outline" onClick={() => setIsAuthenticated(false)}>
+              Log Out
+            </Button>
+          </div>
         </div>
 
         <Tabs defaultValue="images">
