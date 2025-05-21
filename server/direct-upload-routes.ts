@@ -67,7 +67,7 @@ router.post('/simple-upload', upload.single('image'), async (req, res) => {
     if (sectionId) {
       try {
         // Import the section image update function from our dedicated module
-        const { updateSectionImage } = require('./image-storage');
+        const { updateSectionImage } = await import('./image-storage');
         
         // Update the section image data
         await updateSectionImage(sectionId, subsectionId || null, fileUrl);

@@ -75,7 +75,7 @@ export const getSectionImages = async () => {
 export const updateSectionImage = async (section: string, subsection: string | null, imageUrl: string) => {
   try {
     // Get the latest images directly from file
-    let sectionImages = {};
+    let sectionImages: Record<string, any> = {};
     if (await existsAsync(SECTION_IMAGES_FILE)) {
       const rawData = await readFileAsync(SECTION_IMAGES_FILE, 'utf8');
       sectionImages = JSON.parse(rawData);
