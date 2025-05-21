@@ -153,16 +153,14 @@ export function MissionSection() {
                 </a>
               </div>
             </div>
-            <div className="lg:w-1/2 order-1 lg:order-2 flex items-center justify-center">
-              <div className="relative w-full h-full min-h-[300px] md:min-h-[400px] overflow-hidden">
+            <div className="lg:w-1/2 order-1 lg:order-2 flex items-center">
+              <div className="w-full h-full p-6 lg:p-10 flex items-center justify-center">
                 <InPlaceImageEditor
                   currentImageUrl={missionImage}
-                  altText="Healthcare professional showing crystal to young patient"
-                  className="w-full h-full object-cover object-center"
+                  altText="Crystal display showing clear quartz points"
+                  className="max-w-[80%] max-h-[350px] object-contain mx-auto"
                   onImageUpdated={(newUrl) => setMissionImage(newUrl)}
                 />
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-transparent opacity-20"></div>
               </div>
             </div>
           </div>
