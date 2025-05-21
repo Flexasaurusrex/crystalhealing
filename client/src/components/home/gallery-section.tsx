@@ -100,24 +100,24 @@ export function GallerySection() {
   ];
 
   return (
-    <section id="gallery" className="py-20 bg-white dark:bg-gray-900">
+    <section id="gallery" className="py-16 sm:py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="font-playfair font-bold text-3xl md:text-4xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-4">Crystal Gallery</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-[hsl(var(--purple-500))] to-[hsl(var(--pink-400))] mx-auto mb-6"></div>
-          <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <h2 className="font-playfair font-bold text-3xl md:text-4xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-3 sm:mb-4">Crystal Gallery</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-[hsl(var(--purple-500))] to-[hsl(var(--pink-400))] mx-auto mb-4 sm:mb-6"></div>
+          <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-sm sm:text-base">
             Each crystal we provide is carefully selected for its visual appeal, safety, and 
             ability to captivate a child's imagination. These are examples of the specimens we donate.
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {crystals.map((crystal, index) => (
             <CrystalCard key={index} {...crystal} />
           ))}
