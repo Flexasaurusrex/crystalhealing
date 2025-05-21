@@ -112,6 +112,9 @@ export function Footer() {
               <a href="#" className="text-purple-300 text-sm hover:text-white transition-colors">
                 Accessibility
               </a>
+              <a href="/admin" className="text-purple-300/50 text-xs hover:text-white/70 transition-colors ml-4">
+                Admin
+              </a>
             </div>
           </div>
         </div>
