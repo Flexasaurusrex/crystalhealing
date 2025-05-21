@@ -599,8 +599,11 @@ export function DonateSection() {
                 </Button>
               </form>
               
-              {/* Interactive Crystal Animation */}
-              <InteractiveCrystal />
+              {/* Clear separator between form and crystal */}
+              <div className="mt-12 border-t border-purple-400/30 pt-8">
+                <h4 className="text-center text-white text-xl font-medium mb-4">Our Symbol of Hope</h4>
+                <InteractiveCrystal />
+              </div>
             </div>
           </div>
         </motion.div>
