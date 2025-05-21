@@ -60,7 +60,7 @@ export function HeroSection() {
         </motion.div>
         
         <motion.div 
-          className="mt-16 md:mt-24 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12"
+          className="mt-16 md:mt-24 flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.5 }}
