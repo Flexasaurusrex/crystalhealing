@@ -58,7 +58,7 @@ const crystalProperties = [
     description: "Selenite is a soft glowing crystal that helps bring peaceful sleep and calm dreams.",
     funFact: "Selenite is named after Selene, the Greek goddess of the moon!",
     promptDetails: "A selenite crystal wand or tower with a pearly white, luminous appearance. The crystal should have a fibrous structure with a silky, striated surface that gives it a moonlight glow. Show its typical elongated form with a gentle translucence that diffuses light beautifully.",
-    imageSrc: "https://cdn.shopify.com/s/files/1/2152/1405/products/DSC04573wm_1200x.jpg"
+    imageSrc: "https://cdn.shopify.com/s/files/1/0662/3026/1446/files/Selenite_Chunk.jpg"
   },
   {
     id: "protection",
