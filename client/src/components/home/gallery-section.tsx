@@ -32,12 +32,12 @@ function CrystalCard({ image, title, description, tag, tagColor, price, delay }:
           onImageUpdated={(newUrl) => setCrystalImage(newUrl)}
         />
       </div>
-      <div className="p-4 sm:p-6 flex-grow">
+      <div className="p-4 sm:p-6 flex-grow flex flex-col">
         <h3 className="font-playfair font-semibold text-lg sm:text-xl text-[hsl(var(--purple-800))] dark:text-purple-300 mb-2">{title}</h3>
-        <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm mb-3 sm:mb-4">
+        <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm mb-3 sm:mb-4 flex-grow">
           {description}
         </p>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center mt-auto">
           <span className={`text-xs sm:text-sm text-[hsl(var(--${tagColor}))] font-medium`}>{tag}</span>
           <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">{price}</span>
         </div>
@@ -122,7 +122,7 @@ export function GallerySection() {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 auto-rows-fr">
           {crystals.map((crystal, index) => (
             <CrystalCard key={index} {...crystal} />
           ))}
