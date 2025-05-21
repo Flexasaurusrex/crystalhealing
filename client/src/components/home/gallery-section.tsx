@@ -24,12 +24,14 @@ function CrystalCard({ image, title, description, tag, tagColor, price, delay }:
       viewport={{ once: true }}
       transition={{ delay: delay * 0.1, duration: 0.5 }}
     >
-      <div className="w-full h-[280px] overflow-hidden bg-gray-100 dark:bg-gray-800">
+      <div className="w-full aspect-square overflow-hidden bg-gray-100 dark:bg-gray-800">
         <InPlaceImageEditor
           currentImageUrl={crystalImage}
           altText={title}
-          className="w-full h-full object-contain"
+          className="w-full h-full object-cover"
           onImageUpdated={(newUrl) => setCrystalImage(newUrl)}
+          sectionId="gallery"
+          subsectionId={title.split(' ')[0].toLowerCase()}
         />
       </div>
       <div className="p-5 md:p-6 flex flex-col flex-grow">
