@@ -37,7 +37,7 @@ export function MissionSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <motion.div 
-            className="bg-[hsl(var(--stone-50))] dark:bg-gray-800 rounded-xl p-6 shadow-sm gradient-border pl-10"
+            className="bg-[hsl(var(--stone-50))] dark:bg-gray-800 rounded-xl p-6 shadow-sm"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -54,7 +54,7 @@ export function MissionSection() {
           </motion.div>
           
           <motion.div 
-            className="bg-[hsl(var(--stone-50))] dark:bg-gray-800 rounded-xl p-6 shadow-sm gradient-border pl-10"
+            className="bg-[hsl(var(--stone-50))] dark:bg-gray-800 rounded-xl p-6 shadow-sm"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -71,7 +71,7 @@ export function MissionSection() {
           </motion.div>
           
           <motion.div 
-            className="bg-[hsl(var(--stone-50))] dark:bg-gray-800 rounded-xl p-6 shadow-sm gradient-border pl-10"
+            className="bg-[hsl(var(--stone-50))] dark:bg-gray-800 rounded-xl p-6 shadow-sm"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -88,7 +88,7 @@ export function MissionSection() {
           </motion.div>
           
           <motion.div 
-            className="bg-[hsl(var(--stone-50))] dark:bg-gray-800 rounded-xl p-6 shadow-sm gradient-border pl-10"
+            className="bg-[hsl(var(--stone-50))] dark:bg-gray-800 rounded-xl p-6 shadow-sm"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -172,6 +172,7 @@ export function MissionSection() {
                   altText="Crystal display showing clear quartz points"
                   className="w-[95%] h-auto max-h-[550px] object-contain mx-auto"
                   onImageUpdated={(newUrl) => setMissionImage(newUrl)}
+                  sectionId="mission"
                 />
               </div>
             </div>
