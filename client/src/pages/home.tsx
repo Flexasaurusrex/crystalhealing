@@ -7,6 +7,7 @@ import { GallerySection } from "@/components/home/gallery-section";
 import { ImpactSection } from "@/components/home/impact-section";
 import { DonateSection } from "@/components/home/donate-section";
 import { CrystalEducationSection } from "@/components/home/crystal-education-section";
+import { CrystalKitSection } from "@/components/home/crystal-kit-section";
 import { AdminLoginToggle } from "@/components/admin/AdminLoginToggle";
 import { Helmet } from "react-helmet-async";
 
@@ -53,6 +54,7 @@ export default function HomePage() {
         <MissionSection />
         <AboutSection />
         <GallerySection />
+        <CrystalKitSection />
         <CrystalEducationSection />
         <ImpactSection />
         <DonateSection />
