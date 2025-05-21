@@ -67,14 +67,14 @@ export async function forceInitImagePersistence() {
       donate: sectionImages.donate || (defaultRecentUploads[5] || '')
     };
     
-    // Handle gallery items
+    // Handle gallery items - using empty defaults to allow fresh uploads
     const gallery = {
-      amethyst: sectionImages.gallery?.amethyst || '/uploads/image-1747850142811-50648891.png', 
-      roseQuartz: sectionImages.gallery?.roseQuartz || '/uploads/image-1747849325361-238788183.jpeg',
-      clearQuartz: sectionImages.gallery?.clearQuartz || '/uploads/image-1747850443498-996657443.png',
-      citrine: sectionImages.gallery?.citrine || '/uploads/image-1747850360003-848574926.png',
-      selenite: sectionImages.gallery?.selenite || '/uploads/image-1747850244264-747089433.png',
-      fluorite: sectionImages.gallery?.fluorite || '/uploads/image-1747849839811-417506369.png'
+      amethyst: "",
+      roseQuartz: "",
+      clearQuartz: "",
+      citrine: "",
+      selenite: "",
+      fluorite: ""
     };
     
     // Handle crystal whispers items

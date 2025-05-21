@@ -116,12 +116,12 @@ export function GallerySection() {
 
   // Default fallback images (only used if API fails to load)
   const defaultImages = {
-    amethyst: "/uploads/image-1747854751481-681103192.png",
-    clearQuartz: "/uploads/image-1747854250195-303880134.png",
-    roseQuartz: "/uploads/image-1747854759353-478435016.png",
-    fluorite: "/uploads/image-1747854768887-449831325.png",
-    selenite: "/uploads/image-1747853828273-599453880.png",
-    citrine: "/uploads/image-1747853773094-231801869.png"
+    amethyst: "/placeholder-amethyst.png",
+    clearQuartz: "/placeholder-clear-quartz.png",
+    roseQuartz: "/placeholder-rose-quartz.png",
+    fluorite: "/placeholder-fluorite.png",
+    selenite: "/placeholder-selenite.png",
+    citrine: "/placeholder-citrine.png"
   };
 
   // Get gallery images from the API response
