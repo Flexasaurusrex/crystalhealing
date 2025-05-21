@@ -3,8 +3,8 @@ import { useState } from "react";
 import { InPlaceImageEditor } from "@/components/admin/InPlaceImageEditor";
 
 export function CrystalKitSection() {
-  // Note: Using the direct path to the uploaded image
-  const [kitImage, setKitImage] = useState("/attached_assets/image_1747844371359.png");
+  // Use the correct path to the uploaded image in our server's upload directory
+  const [kitImage, setKitImage] = useState("/uploads/crystal-kit.png");
   
   return (
     <section className="py-20 bg-[hsl(var(--stone-50))] dark:bg-gray-800">
