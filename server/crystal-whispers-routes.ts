@@ -113,12 +113,30 @@ router.get('/crystal-whispers-images', async (_req: Request, res: Response) => {
   }
 });
 
-// Route to handle Crystal Whispers image uploads
+// Route to handle Crystal Whispers image uploads via file upload
 router.post('/upload-crystal-image', upload.single('image'), async (req: Request, res: Response) => {
   try {
     const file = req.file as Express.Multer.File;
     if (!file) {
-      return res.status(400).json({ error: 'No file uploaded' });
+      // Check if we have a JSON request with imageUrl instead
+      if (req.headers['content-type']?.includes('application/json')) {
+        const { crystal, imageUrl } = req.body;
+        if (!crystal || !imageUrl) {
+          return res.status(400).json({ error: 'Crystal type and imageUrl are required' });
+        }
+        
+        // Update Crystal Whispers images with the provided URL
+        const updatedImages = await updateCrystalWhispersImage(crystal, imageUrl);
+        
+        return res.json({
+          success: true,
+          imageUrl,
+          images: updatedImages,
+          message: `Image successfully updated for ${crystal} crystal`
+        });
+      } else {
+        return res.status(400).json({ error: 'No file uploaded and no image URL provided' });
+      }
     }
 
     const crystalType = req.body.crystal;
