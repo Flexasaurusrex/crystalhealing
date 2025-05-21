@@ -569,8 +569,8 @@ export function DonateSection() {
               <div className="mt-12 border-t border-purple-400/30 pt-8 flex flex-col items-center">
                 <InteractiveCrystal />
                 
-                {/* All text below the diamond */}
-                <div className="mt-4">
+                {/* All text below the diamond - properly centered */}
+                <div className="mt-4 text-center w-full">
                   <div className="font-serif text-sm text-purple-200 tracking-wide">HEALING THROUGH VISUAL THERAPY</div>
                   <div className="text-purple-200 text-sm font-medium mt-2">Click for magic!</div>
                   
