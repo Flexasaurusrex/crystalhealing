@@ -21,6 +21,7 @@ export function CrystalKitSection() {
           <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Our carefully curated crystal kits are designed to provide a captivating visual experience for children in hospital settings. 
             Each kit is thoughtfully packaged to create a sense of discovery and wonder.
+            Each kit is tailored to preference for size and type, with costs ranging from $20-$150 per kit.
           </p>
         </motion.div>
         
