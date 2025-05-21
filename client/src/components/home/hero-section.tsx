@@ -52,8 +52,8 @@ export function HeroSection() {
             transition={{ delay: 0.3, duration: 0.7 }}
           >
             <img 
-              src="https://images.unsplash.com/photo-1567425928496-1ab66c650131?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3"
-              alt="Purple amethyst crystal display" 
+              src="https://i.ibb.co/RYfxDkG/amethyst-in-hospital.jpg"
+              alt="Amethyst crystal display by hospital bedside" 
               className="rounded-2xl shadow-xl w-full h-auto object-cover transform md:translate-x-8" 
             />
           </motion.div>
