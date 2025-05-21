@@ -155,7 +155,12 @@ export default function AdminPage() {
     const formData = new FormData();
     formData.append('image', file);
     
-    if (isGalleryItem) {
+    // Handle the special case for crystal whispers section
+    if (sectionId.startsWith('crystalWhispers.')) {
+      const parts = sectionId.split('.');
+      formData.append('section', 'crystalWhispers');
+      formData.append('subsection', parts[1]);
+    } else if (isGalleryItem) {
       formData.append('section', 'gallery');
       formData.append('subsection', sectionId);
     } else {
@@ -172,7 +177,13 @@ export default function AdminPage() {
         throw new Error(`Failed to upload image: ${response.statusText}`);
       }
       
-      const data = await response.json();
+      let data;
+      const text = await response.text();
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        throw new Error(`Failed to parse response: ${text.substring(0, 100)}`);
+      }
       
       // Update the state with the new image URL
       if (data.sections) {
@@ -184,19 +195,36 @@ export default function AdminPage() {
           ...(data.sections.gallery ? Object.keys(data.sections.gallery).reduce((acc, key) => {
             acc[key] = data.sections.gallery[key];
             return acc;
-          }, {} as Record<string, string>) : {})
+          }, {} as Record<string, string>) : {}),
+          // Handle nested crystal whispers structure
+          ...(data.sections.crystalWhispers ? { crystalWhispers: data.sections.crystalWhispers } : {})
         }));
-      } else {
+      } else if (data.imageUrl) {
         // Fall back to old behavior
-        setSectionImages(prev => ({
-          ...prev,
-          [sectionId]: data.imageUrl
-        }));
+        if (sectionId.startsWith('crystalWhispers.')) {
+          const parts = sectionId.split('.');
+          setSectionImages(prev => ({
+            ...prev,
+            crystalWhispers: {
+              ...prev.crystalWhispers,
+              [parts[1]]: data.imageUrl
+            }
+          }));
+        } else {
+          setSectionImages(prev => ({
+            ...prev,
+            [sectionId]: data.imageUrl
+          }));
+        }
       }
       
+      const displayName = sectionId.startsWith('crystalWhispers.') 
+        ? `${formatSectionName('crystalWhispers')} - ${formatSectionName(sectionId.split('.')[1])}`
+        : formatSectionName(sectionId);
+        
       toast({
         title: "Upload successful",
-        description: `Image for ${formatSectionName(sectionId)} has been updated`,
+        description: `Image for ${displayName} has been updated`,
       });
     } catch (error: any) {
       console.error("Error uploading image:", error);
