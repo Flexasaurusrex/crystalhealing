@@ -58,7 +58,7 @@ export function HeroSection() {
               <InPlaceImageEditor
                 currentImageUrl={heroImage}
                 altText="Amethyst crystal display by hospital bedside"
-                className="w-full h-auto object-contain transform md:translate-x-8"
+                className="w-full h-full object-cover"
                 onImageUpdated={(newUrl) => setHeroImage(newUrl)}
               />
             </div>
