@@ -510,6 +510,9 @@ export function DonateSection() {
                   {contactMutation.isPending ? "Sending..." : "Send Message"}
                 </Button>
               </form>
+              
+              {/* Interactive Crystal Animation */}
+              <InteractiveCrystal />
             </div>
           </div>
         </motion.div>
