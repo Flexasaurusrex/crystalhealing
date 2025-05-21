@@ -52,8 +52,8 @@ export function HeroSection() {
             transition={{ delay: 0.3, duration: 0.7 }}
           >
             <img 
-              src="https://i.ibb.co/6RcVgNhK/Chat-GPT-Image-May-21-2025-12-32-16-AM.png"
-              alt="Amethyst crystal display by hospital bedside" 
+              src="https://www.crystalsandjewelry.com/wp-content/uploads/2019/04/Amethyst-Meaning.jpg"
+              alt="Amethyst crystal display with healing properties" 
               className="rounded-2xl shadow-xl w-full h-auto object-cover transform md:translate-x-8" 
             />
           </motion.div>
